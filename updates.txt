@@ -1,0 +1,21 @@
+20 settembre 2021
+progetto lunaheroes con angular 
+
+si lavora localmente. 
+si parte con il comando ng-serve
+
+//da ricordare
+ng generate component (nome componente)
+
+è stata creata una prima componente login 
+
+//è stata create una seconda componente heroes 
+
+//viene creata un'interfaccia base con i campi dell'eroe: 
+-id (che viene generato casualmente (?)
+-name
+-gender
+-signs
+-notes
+
+//le componenti create sono state heroes che contiene, hero-item

@@ -1,0 +1,13 @@
+<div class = "heroes-container">
+    <button>Filtra</button>
+    <div class ="heroes-table">
+    <app-hero-item *ngFor= "let hero of heroes " 
+    [hero]="hero"
+    (onEditHero)= "editHero(hero)"
+    (onVisualizeHero) = "visualizeHero(hero)"
+    (onDeleteHero)= "deleteHero(hero)">
+        
+    </app-hero-item>
+
+    </div>
+</div>
