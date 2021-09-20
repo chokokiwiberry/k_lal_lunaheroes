@@ -7,6 +7,13 @@ import { LoginComponent } from './components/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeroesComponent } from './components/heroes/heroes.component';
 import { HeroItemComponent } from './components/hero-item/hero-item.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes : Routes =[
+  {path: '', component: LoginComponent},
+  {path: 'heroes', component: HeroesComponent}
+]
 
 @NgModule({
   declarations: [
@@ -18,7 +25,9 @@ import { HeroItemComponent } from './components/hero-item/hero-item.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FontAwesomeModule, 
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

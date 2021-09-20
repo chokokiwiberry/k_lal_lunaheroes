@@ -1,3 +1,7 @@
-<div>
-    <p>{{hero.name}}</p>
+<div class = "hero">
+
+    <p>{{hero.name}} 
+        <fa-icon
+        (click)="onDeleteHero(hero)" 
+        [icon]="faTimes"></fa-icon></p>
 </div>

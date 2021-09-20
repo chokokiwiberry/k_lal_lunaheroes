@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Hero} from '../../Hero'
+import {HeroService} from '../../services/hero.service'
+
 import { from } from 'rxjs';
 
 @Component({
@@ -8,12 +10,12 @@ import { from } from 'rxjs';
   styleUrls: ['./heroes.component.css']
 })
 export class HeroesComponent implements OnInit {
-  heroes: Hero[] = [] //vettore di eroi, con interfaccia Hero
+  heroes: Hero[] = []; //vettore di eroi, con interfaccia Hero
 
-  constructor() { }
+  constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
-    //getHeroes 
+    this.heroes = this.heroService.getHeroes();
 
   }
   editHero(hero: Hero){
@@ -23,7 +25,7 @@ export class HeroesComponent implements OnInit {
 
   }
   deleteHero(hero: Hero){
-
+    
   }
 
 }
