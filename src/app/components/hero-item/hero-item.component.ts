@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {Hero} from '../../Hero'
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { Hero } from '../../Hero'
+import { faTrash, faEdit, faEye } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-hero-item',
@@ -10,19 +10,26 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 export class HeroItemComponent implements OnInit {
   @Input()
   hero!: Hero;
-faTimes = faTimes;
+
+  
+
+//icone
+  faTrash = faTrash;
+  faEdit = faEdit;
+  faEye = faEye;
 
   constructor() { }
 
   ngOnInit(): void {
   }
-  onEditHero(){
+  onEditHero() {
 
   }
-  onVisualizeHero(){
+  onVisualizeHero() {
 
   }
-  onDeleteHero(hero: Hero){
+  onDeleteHero(hero: Hero) {
     console.log('ciao');
   }
+
 }

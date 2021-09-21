@@ -9,6 +9,10 @@ import { HeroesComponent } from './components/heroes/heroes.component';
 import { HeroItemComponent } from './components/hero-item/hero-item.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule, Routes } from '@angular/router';
+import { MatTableModule } from '@angular/material/table';
+import {MatInputModule} from '@angular/material/input';
+import {FormsModule} from '@angular/forms';
+
 
 const appRoutes : Routes =[
   {path: '', component: LoginComponent},
@@ -27,7 +31,11 @@ const appRoutes : Routes =[
     AppRoutingModule,
     NgbModule,
     FontAwesomeModule, 
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    MatTableModule,
+    MatInputModule, 
+    FormsModule
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

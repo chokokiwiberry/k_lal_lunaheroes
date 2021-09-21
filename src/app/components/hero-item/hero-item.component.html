@@ -1,7 +1,24 @@
 <div class = "hero">
 
-    <p>{{hero.name}} 
-        <fa-icon
-        (click)="onDeleteHero(hero)" 
-        [icon]="faTimes"></fa-icon></p>
+    <select class="form-select" aria-label="Default select example">
+        <option selected>Open this select menu</option>
+        <option value="1">&#xf1f8;
+            Cancella
+           
+            <fa-icon
+            (click)="onDeleteHero(hero)" 
+            [icon]="faTrash"></fa-icon>
+        </option>
+        <option value="2">
+            Modifica
+            <fa-icon [icon] = "faEdit"></fa-icon>
+        </option>
+        <option value="3">
+            Visualizza
+            <fa-icon [icon] = "faEye"></fa-icon>
+        </option>
+      </select>
+   
+     
+       
 </div>
