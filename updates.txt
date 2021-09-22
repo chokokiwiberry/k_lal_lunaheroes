@@ -19,3 +19,6 @@ ng generate component (nome componente)
 -notes
 
 //le componenti create sono state heroes che contiene, hero-item
+
+21 settembre 2021 
+aggiungere le parti del filtro, aggiungere le icone per gli elementi 

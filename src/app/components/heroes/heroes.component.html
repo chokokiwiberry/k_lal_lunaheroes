@@ -1,3 +1,7 @@
+<div class = "div_filter">
+
+</div>
+
 <div class = "div_tablehero">
 <table mat-table [dataSource]="heroes">
 
@@ -41,7 +45,7 @@
     <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let element">
-            <app-hero-item>
+            <app-hero-item [hero] = "element"> <!-- passo ad hero-item un elemento singolo -->
             </app-hero-item>
         </td>
     </ng-container>

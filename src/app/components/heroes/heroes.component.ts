@@ -26,7 +26,7 @@ export class HeroesComponent implements OnInit {
 
 
   editHero(hero: Hero){
-
+    
   }
   visualizeHero(hero: Hero){
 

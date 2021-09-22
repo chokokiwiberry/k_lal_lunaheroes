@@ -14,6 +14,7 @@ import {MatInputModule} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
 
 
+
 const appRoutes : Routes =[
   {path: '', component: LoginComponent},
   {path: 'heroes', component: HeroesComponent}
@@ -24,7 +25,8 @@ const appRoutes : Routes =[
     AppComponent,
     LoginComponent,
     HeroesComponent,
-    HeroItemComponent
+    HeroItemComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -34,9 +36,11 @@ const appRoutes : Routes =[
     RouterModule.forRoot(appRoutes),
     MatTableModule,
     MatInputModule, 
-    FormsModule
+    FormsModule,
+    
    
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })

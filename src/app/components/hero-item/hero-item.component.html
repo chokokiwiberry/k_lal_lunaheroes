@@ -1,24 +1,30 @@
-<div class = "hero">
+<div class="hero">
+    <!--- prova button con "cancella che stampa il singolo elemento "
+    <button (click) = "onDeleteHero(hero)"> Cancella
 
-    <select class="form-select" aria-label="Default select example">
+    </button>
+    
+-->
+
+
+    <select class="form-select" aria-label="selectaction">
         <option selected>Open this select menu</option>
-        <option value="1">&#xf1f8;
-            Cancella
-           
-            <fa-icon
-            (click)="onDeleteHero(hero)" 
-            [icon]="faTrash"></fa-icon>
-        </option>
-        <option value="2">
+
+        <option value="1" (click)="onEditHero(hero)">
             Modifica
-            <fa-icon [icon] = "faEdit"></fa-icon>
+            <fa-icon [icon]="faEdit"></fa-icon>
         </option>
-        <option value="3">
+        <option value="2" (click)="onVisualizeHero(hero)">
             Visualizza
-            <fa-icon [icon] = "faEye"></fa-icon>
+            <fa-icon [icon]="faEye"></fa-icon>
         </option>
-      </select>
-   
-     
-       
+        <option value="3" (click)="onDeleteHero(hero)">&#xf1f8;
+            Cancella
+            <fa-icon [icon]="faTrash"></fa-icon>
+        </option>
+    </select>
+
+
+
 </div>
+

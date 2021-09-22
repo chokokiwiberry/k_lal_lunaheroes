@@ -16,6 +16,7 @@ table {
     
 
 }
+
 .div-login{
     margin-top: 100px;
     border: 1px solid black;
@@ -25,4 +26,7 @@ table {
 .label_item{
     display: block;
     text-align: center;
+}
+.div_tablehero{
+    margin-top: 50px;
 }
