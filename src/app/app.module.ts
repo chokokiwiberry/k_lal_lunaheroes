@@ -14,6 +14,7 @@ import {MatInputModule} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
 import { AddHeroComponent } from './components/add-hero/add-hero.component';
 import { HeaderComponent } from './components/header/header.component';
+import { FilterComponent } from './components/filter/filter.component';
 
 
 
@@ -30,6 +31,7 @@ const appRoutes : Routes =[
     HeroItemComponent,
     AddHeroComponent,
     HeaderComponent,
+    FilterComponent,
 
   ],
   imports: [

@@ -1,19 +1,24 @@
 <div class = "div_filter">
+    <h5>
+    Filtra <fa-icon [icon]="faFilter"></fa-icon></h5>
 <div class = "div_input">
-    <input id ="inputsearch" (keyup)="onKey($event)" #input>
+    <label for="input" class="form-label">Inserisci un nome</label>
+    <input id ="inputsearch" (keyup)="onKey($event)" #input placeholder="Nome da cercare">
     <p>{{value}}</p>
 </div>
+    <div class = "age_wrapper">
     <!----da sistemare età min-->
     <div class = "min_age">
-    <label for="customRange1" class="form-label">age min</label>
-    <input type="range" class="form-range" id="customRange1">
-    </div>
-    <!----da sistemare età max-->
-    <div class ="max_age">
-    <label for="customRange1" class="form-label">age max</label>
+    <label for="customRange1" class="form-label">Età minima</label>
     <input type="range" class="form-range" id="customRange1">
     </div>
 
+    <!----da sistemare età max-->
+    <div class ="max_age">
+    <label for="customRange1" class="form-label">Età massima</label>
+    <input type="range" class="form-range" id="customRange1">
+    </div>
+</div>
     <div class = "gender_select">
         
     <select class="form-select" aria-label="selectaction">

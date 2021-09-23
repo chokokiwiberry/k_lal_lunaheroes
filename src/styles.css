@@ -2,6 +2,7 @@
 select {
     font-family: "Font Awesome 5 Free";
     font-weight: 400;
+    
   }
   /* Structure */
 table {
@@ -30,3 +31,22 @@ table {
 .div_tablehero{
     margin-top: 50px;
 }
+
+/* sezione div nome da cercare */
+#inputsearch {
+  margin-left: 10px;
+}
+
+
+/* sezione div età minima massima */
+.age_wrapper{
+  display:flex;
+}
+.min_age{
+  margin: 0 10px;
+  flex: 1;
+}
+.max_age{
+  flex: 1;
+}
+

@@ -2,6 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import {Hero} from '../../Hero'
 import {HeroService} from '../../services/hero.service'
 import {MatTableDataSource} from '@angular/material/table';
+import { faFilter} from '@fortawesome/free-solid-svg-icons';
 //import { HEROES } from 'src/app/mock-heroes';
 
 @Component({
@@ -15,7 +16,7 @@ export class HeroesComponent  {
   dataSource = new MatTableDataSource();
   displayedColumns: string[] = ['id', 'name', 'age', 'gender', 'signs', 'notes', 'actions'];
   value = '';
- 
+ faFilter = faFilter;
   constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
