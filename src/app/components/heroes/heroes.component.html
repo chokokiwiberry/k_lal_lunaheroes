@@ -1,9 +1,36 @@
 <div class = "div_filter">
+<div class = "div_input">
+    <input id ="inputsearch" (keyup)="onKey($event)" #input>
+    <p>{{value}}</p>
+</div>
+    <!----da sistemare età min-->
+    <div class = "min_age">
+    <label for="customRange1" class="form-label">age min</label>
+    <input type="range" class="form-range" id="customRange1">
+    </div>
+    <!----da sistemare età max-->
+    <div class ="max_age">
+    <label for="customRange1" class="form-label">age max</label>
+    <input type="range" class="form-range" id="customRange1">
+    </div>
 
+    <div class = "gender_select">
+        
+    <select class="form-select" aria-label="selectaction">
+        <option selected>Open this select menu</option>
+
+        <option value="M">
+          Male
+        </option>
+        <option value = "F">
+            Female
+        </option>
+    </select>
+</div>
 </div>
 
 <div class = "div_tablehero">
-<table mat-table [dataSource]="heroes">
+<table mat-table [dataSource]="dataSource">
 
     <!-- id Column -->
     <ng-container matColumnDef="id">
@@ -54,5 +81,13 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
+    <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">Nessun risultato"{{input.value}}"</td>
+      </tr>
+
 </table>
 </div>
+
+
+<!--il bottone per poter aggiungere un eroe nuovo-->
+<app-add-hero></app-add-hero>

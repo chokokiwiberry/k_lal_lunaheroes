@@ -12,6 +12,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
+import { AddHeroComponent } from './components/add-hero/add-hero.component';
+import { HeaderComponent } from './components/header/header.component';
 
 
 
@@ -26,6 +28,8 @@ const appRoutes : Routes =[
     LoginComponent,
     HeroesComponent,
     HeroItemComponent,
+    AddHeroComponent,
+    HeaderComponent,
 
   ],
   imports: [

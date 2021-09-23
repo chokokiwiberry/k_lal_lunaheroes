@@ -27,7 +27,18 @@ export const HEROES: Hero[] = [
     signs: 'Pippistrello',
     notes: 'Gotham'
 
+},
+{
+    id: 4,
+    name: 'Catwoman',
+    age: 37,
+    gender: 'F',
+    signs: 'Gatto',
+    notes: ''
+
 }
+
+
 ]
 
 

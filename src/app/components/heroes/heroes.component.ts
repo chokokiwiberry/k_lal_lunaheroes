@@ -9,21 +9,26 @@ import {MatTableDataSource} from '@angular/material/table';
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.css']
 })
-export class HeroesComponent implements OnInit {
+export class HeroesComponent  {
   
   heroes: Hero[] = []; //vettore di eroi, con interfaccia Hero
-  dataSource = new MatTableDataSource(this.heroes);
+  dataSource = new MatTableDataSource();
   displayedColumns: string[] = ['id', 'name', 'age', 'gender', 'signs', 'notes', 'actions'];
-
-
-
+  value = '';
+ 
   constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
     this.heroes = this.heroService.getHeroes();
+    this.dataSource.data = this.heroes;
+
   
   }
-
+   onKey(event: Event) { //per prendere l'input e filtrarlo sulla tabella
+    const filterValue = (event.target as HTMLInputElement).value;
+    console.log(this.dataSource.filteredData);
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 
   editHero(hero: Hero){
     
