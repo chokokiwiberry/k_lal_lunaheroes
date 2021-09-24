@@ -11,11 +11,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule, Routes } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AddHeroComponent } from './components/add-hero/add-hero.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FilterComponent } from './components/filter/filter.component';
-
+import { SelectGenderComponent } from './components/select-gender/select-gender.component';
+import { FilterNameComponent } from './components/filter-name/filter-name.component';
 
 
 const appRoutes : Routes =[
@@ -32,6 +33,8 @@ const appRoutes : Routes =[
     AddHeroComponent,
     HeaderComponent,
     FilterComponent,
+    SelectGenderComponent,
+    FilterNameComponent,
 
   ],
   imports: [
@@ -43,7 +46,7 @@ const appRoutes : Routes =[
     MatTableModule,
     MatInputModule, 
     FormsModule,
-    
+    ReactiveFormsModule
    
   ],
   

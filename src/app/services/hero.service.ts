@@ -5,8 +5,14 @@ import {HEROES} from '../mock-heroes'
 
 @Injectable({
   providedIn: 'root'
+ 
 })
 export class HeroService {
+  sharedData!: any;
+  tableData!: any;
+
+
+
 
   constructor() { }
 
@@ -17,4 +23,6 @@ export class HeroService {
   deleteHero(hero: Hero){
     console.log('cancella')
   }
+
+  
 }
