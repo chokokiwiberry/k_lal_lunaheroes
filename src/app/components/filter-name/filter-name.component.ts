@@ -12,10 +12,13 @@ export class FilterNameComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+
+
+  //da aggiustare la funzione per cercare da input 
   onKey(event: Event) { //per prendere l'input e filtrarlo sulla tabella
-    const element = event.target as HTMLInputElement;
-  const value = element.innerText; //per estrarre l'elemento dalla scelta option
-  console.log('sono empty',value);
+  const element = event.target as HTMLInputElement;
+  const value = element.value; //per estrarre l'elemento dalla scelta option
   var results = [];
   if (value !== undefined || value !== null){
     for (var i = 0; i<this.heroService.tableData.length; i++){

@@ -4,21 +4,7 @@
 
     <app-filter-name filterName = "filterName()"></app-filter-name>
 
-
-    <div class = "age_wrapper">
-    <!----da sistemare età min-->
-    <div class = "min_age">
-    <label for="customRange1" class="form-label">Età minima</label>
-    <input type="range" class="form-range" id="customRangeMin">
-    </div>
-
-    <!----da sistemare età max-->
-    <div class ="max_age">
-    <label for="customRange1" class="form-label">Età massima</label>
-    <input type="range" class="form-range" id="customRangeMax">
-    </div>
-</div>
-    
+    <app-filter-age></app-filter-age>
       
     <app-select-gender (click)="filterGender()"></app-select-gender>
 
@@ -86,3 +72,5 @@
 
 <!--il bottone per poter aggiungere un eroe nuovo-->
 <app-add-hero></app-add-hero>
+
+<!--- heroes prova modal-->

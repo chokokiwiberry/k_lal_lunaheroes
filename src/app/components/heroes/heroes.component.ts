@@ -7,17 +7,17 @@ import { faFilter} from '@fortawesome/free-solid-svg-icons';
 
 
 
+;
+
 @Component({
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.css']
 })
 export class HeroesComponent  {
-  
   heroes: Hero[] = []; //vettore di eroi, con interfaccia Hero
   dataSource = new MatTableDataSource();
   displayedColumns: string[] = ['id', 'name', 'age', 'gender', 'signs', 'notes', 'actions'];
-  value = '';
   faFilter = faFilter;
   
  
@@ -32,10 +32,6 @@ export class HeroesComponent  {
   }
 
   
-  /// provare a passre il valore della select 
-  addItem(newItem: any) {
-    console.log(newItem);
-  }
 
 
   //per ricevere il dato tramite select-gender
@@ -63,9 +59,6 @@ export class HeroesComponent  {
     
   }
 
-  applyFilter(event: Event) {
-    /*const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase(); */
-  }
+
 
 }

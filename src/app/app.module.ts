@@ -17,6 +17,12 @@ import { HeaderComponent } from './components/header/header.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { SelectGenderComponent } from './components/select-gender/select-gender.component';
 import { FilterNameComponent } from './components/filter-name/filter-name.component';
+import { FilterAgeComponent } from './components/filter-age/filter-age.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ButtonComponent } from './components/button/button.component';
 
 
 const appRoutes : Routes =[
@@ -35,6 +41,9 @@ const appRoutes : Routes =[
     FilterComponent,
     SelectGenderComponent,
     FilterNameComponent,
+    FilterAgeComponent,
+    ModalComponent,
+    ButtonComponent,
 
   ],
   imports: [
@@ -46,11 +55,15 @@ const appRoutes : Routes =[
     MatTableModule,
     MatInputModule, 
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
+    
    
   ],
   
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ ],
+  bootstrap: [AppComponent],
+  entryComponents: [ModalComponent]
 })
 export class AppModule { }
