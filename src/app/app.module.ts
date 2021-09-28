@@ -23,6 +23,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ButtonComponent } from './components/button/button.component';
+import { ModalDirective } from './directives/modal.directive';
 
 
 const appRoutes : Routes =[
@@ -44,6 +45,7 @@ const appRoutes : Routes =[
     FilterAgeComponent,
     ModalComponent,
     ButtonComponent,
+    ModalDirective,
 
   ],
   imports: [
