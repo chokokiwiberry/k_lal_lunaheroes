@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ViewContainerRef } from '@angular/core';
 
 import {Hero} from '../Hero'
 import {HEROES} from '../mock-heroes'
@@ -15,6 +15,8 @@ import { ModalComponent } from '../components/modal/modal.component';
 export class HeroService {
   sharedData!: any;
   tableData!: any;
+
+
 
 
 
@@ -43,5 +45,24 @@ export class HeroService {
       console.log(`Dialog result: ${result}`);
     });
   }
+
+  openModal(){
+ 
+    const dialogRef = this.dialog.open(ModalComponent,)
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+
+  }
   
+
+
+
+
+
+
+
+
+
 }

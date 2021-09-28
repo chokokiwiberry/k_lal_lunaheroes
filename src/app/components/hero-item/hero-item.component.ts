@@ -20,6 +20,7 @@ import { HeroService } from 'src/app/services/hero.service';
 })
 export class HeroItemComponent implements OnInit {
 
+
   @Input()
   hero!: Hero;
 
@@ -53,10 +54,14 @@ export class HeroItemComponent implements OnInit {
   onVisualizeHero(hero: Hero) {
     console.log('sono visualizza');
     console.log(this.hero);
+    this.heroService.openDialog(hero);
+
   }
   onDeleteHero(hero: Hero) {
     console.log('sono cancella');
     console.log(this.hero);
+    this.heroService.openDialog(hero);
+
   }
 
  

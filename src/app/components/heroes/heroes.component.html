@@ -70,7 +70,9 @@
 </div>
 
 
-<!--il bottone per poter aggiungere un eroe nuovo-->
-<app-add-hero></app-add-hero>
+<!--il bottone per poter aggiungere un eroe nuovo, prima c'era direttamente la componente add-hero,
+l'idea è che si clicca il bottone, triggera la componente modale e dentro la modale c'è add-hero -->
 
+<button class ="btn btn-primary" (click)="openModal()">Aggiungi Eroe</button>
 <!--- heroes prova modal-->
+

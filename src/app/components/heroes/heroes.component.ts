@@ -19,7 +19,9 @@ export class HeroesComponent  {
   dataSource = new MatTableDataSource();
   displayedColumns: string[] = ['id', 'name', 'age', 'gender', 'signs', 'notes', 'actions'];
   faFilter = faFilter;
-  
+
+  //
+  text: string = 'Aggiungi eroe'
  
   constructor(private heroService: HeroService) { }
 
@@ -57,6 +59,12 @@ export class HeroesComponent  {
   }
   deleteHero(hero: Hero){
     
+  }
+
+
+  //prova ad aggiungere l'eroe e con il modal
+  openModal(){
+    this.heroService.openModal();
   }
 
 
