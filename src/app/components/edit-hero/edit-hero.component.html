@@ -1,0 +1,32 @@
+<div class = "add_hero">
+    <div>
+        <h6>Modifica l'eroe</h6>
+    </div>
+<div class="form-group">
+    <label for="name">Name*</label>
+    <input [disabled]="clicked" type="text" class="form-control" id="name"
+           name="name" [(ngModel)]="name" placeholder = "{{hero.name}}">
+  </div>
+  
+  <div class="form-group">
+    <label for="age">Age*</label>
+    <input [disabled]="clicked" type="text"  class="form-control" id="age"
+            name="age"  [(ngModel)]="age" placeholder = "{{hero.age}}">
+  </div>
+  <div>
+      <app-select-gender (choose)="chosenGender()"></app-select-gender>
+  </div>
+  <div class="form-group">
+    <label for="signs" >Signs</label>
+   <textarea [disabled]="clicked" [(ngModel)]="signs"placeholder = "{{hero.signs}}"></textarea>
+  </div>
+  <div class="form-group">
+      <label for="notes">Notes</label>
+      <textarea [disabled]="clicked" [(ngModel)]="notes" placeholder = "{{hero.notes}}"></textarea>
+  </div>
+
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close class = "btn btn-primary" (click)="EditHero()">Salva</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial class = "btn btn-secondary">Annulla</button>
+  </mat-dialog-actions>
+</div>

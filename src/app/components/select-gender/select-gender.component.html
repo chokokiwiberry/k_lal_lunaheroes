@@ -1,8 +1,12 @@
-<div class = "gender_select">
+<div class = "gender_div">
+  <label for="gender_select">Gender</label>
 <form [formGroup]="form">
     <select formControlName="gender_select">
-    
-      <option *ngFor="let gender of genders" [ngValue]="gender.gender" (click) = "filterGender($event)" >
+     
+      <option *ngFor="let gender of genders" 
+      [ngValue]="gender.gender" 
+      (click) = "filterGender($event)" 
+      (click)="setGender($event)">
         {{ gender.gender }}
       </option>
     </select>

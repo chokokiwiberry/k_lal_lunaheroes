@@ -15,9 +15,9 @@ export class ButtonComponent implements OnInit {
   }
 
 
-  openModal(){
+ /* openModal(){
     this.heroService.openModal();
   }
-
+ */
 
 }

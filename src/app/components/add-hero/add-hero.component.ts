@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { HeroService } from 'src/app/services/hero.service';
 @Component({
   selector: 'app-add-hero',
   templateUrl: './add-hero.component.html',
@@ -8,18 +9,45 @@ import { Component, OnInit } from '@angular/core';
 
 //si potrebbe fare che add-hero component faccia sia da add che da edit 
 export class AddHeroComponent implements OnInit {
-    name_hero!: string;
-    age_hero!: number;
-    gender_hero!: string;
-    signs_hero!: string;
-    notes_hero!: string;
+    name!: string;
+    age!: number;
+    gender!: string;
+    signs!: string;
+    notes!: string;
 
-  constructor() { }
+  constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
   }
-  AddHero(){
-    console.log('prova')
+
+  chosenGender(): string{
+    return this.gender = this.heroService.chosenGender;
+
   }
+  AddHero(){
+    console.log('sono add hero in add component hero')
+    if (!this.name){
+      alert('Il nome è obbligatorio');
+      return;
+    }
+    if (!this.age){
+      alert('Inserire un un\'\ età');
+      return;
+    } 
+    if (!this.chosenGender){
+      alert('Si scelga un genere');
+    }
+    const newHero = {
+      name: this.name,
+      age: this.age,
+      gender: this.chosenGender(),
+      signs: this.signs,
+      notes: this.notes
+    }
+    this.heroService.addHero(newHero);
+    
+    }
+ 
+  
 
 }

@@ -23,7 +23,7 @@ export class SelectGenderComponent implements OnInit {
     {gender: 'M'},
     {gender: 'F'}
   ]
-  constructor(private dataService:HeroService) { }
+  constructor(private heroService:HeroService) { }
 
   ngOnInit(): void {
   }
@@ -32,13 +32,13 @@ export class SelectGenderComponent implements OnInit {
 
 
 getValue(): string{
-  return this.dataService.sharedData;
+  return this.heroService.sharedData;
 }
 
 setValue(event: Event){
   const element = event.target as HTMLInputElement;
   const value = element.value;
-  this.dataService.sharedData = value;
+  this.heroService.sharedData = value;
 }
 
 filterGender(event: Event){
@@ -46,14 +46,17 @@ filterGender(event: Event){
   const value = element.innerText; //per estrarre l'elemento dalla scelta option
   var results = [];
   if (value !== undefined || value !== null){
-    for (var i = 0; i<this.dataService.tableData.length; i++){
-      if (this.dataService.tableData[i].gender === value){
-        results.push(this.dataService.tableData[i]);
+    for (var i = 0; i<this.heroService.tableData.length; i++){
+      if (this.heroService.tableData[i].gender === value){
+        results.push(this.heroService.tableData[i]);
       }
     }
   }
-  this.dataService.tableData = results;
+  this.heroService.tableData = results;
 }
-
+setGender(event: Event){
+  const element = event.target as HTMLInputElement;
+  this.heroService.chosenGender = element.innerText;
+}
 
 }

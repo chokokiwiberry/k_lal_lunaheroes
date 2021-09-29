@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import {Hero} from '../../Hero'
 import {HeroService} from '../../services/hero.service'
+import { ModalService } from 'src/app/services/modal.service';
 import {MatTableDataSource} from '@angular/material/table';
 import { faFilter} from '@fortawesome/free-solid-svg-icons';
 //import { HEROES } from 'src/app/mock-heroes';
@@ -23,7 +24,7 @@ export class HeroesComponent  {
   //
   text: string = 'Aggiungi eroe'
  
-  constructor(private heroService: HeroService) { }
+  constructor(private heroService: HeroService, private modalService: ModalService) { }
 
   ngOnInit(): void {
     this.heroes = this.heroService.getHeroes();
@@ -63,8 +64,8 @@ export class HeroesComponent  {
 
 
   //prova ad aggiungere l'eroe e con il modal
-  openModal(){
-    this.heroService.openModal();
+  loadAdd(){
+    this.modalService.loadAdd();
   }
 
 

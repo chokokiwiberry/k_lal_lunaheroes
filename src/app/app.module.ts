@@ -18,12 +18,13 @@ import { FilterComponent } from './components/filter/filter.component';
 import { SelectGenderComponent } from './components/select-gender/select-gender.component';
 import { FilterNameComponent } from './components/filter-name/filter-name.component';
 import { FilterAgeComponent } from './components/filter-age/filter-age.component';
-import { ModalComponent } from './components/modal/modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ButtonComponent } from './components/button/button.component';
-import { ModalDirective } from './directives/modal.directive';
+import { EditHeroComponent } from './components/edit-hero/edit-hero.component';
+import { ShowHeroComponent } from './components/show-hero/show-hero.component';
+import { DeleteHeroComponent } from './components/delete-hero/delete-hero.component';
 
 
 const appRoutes : Routes =[
@@ -43,9 +44,10 @@ const appRoutes : Routes =[
     SelectGenderComponent,
     FilterNameComponent,
     FilterAgeComponent,
-    ModalComponent,
     ButtonComponent,
-    ModalDirective,
+    EditHeroComponent,
+    ShowHeroComponent,
+    DeleteHeroComponent,
 
   ],
   imports: [
@@ -66,6 +68,6 @@ const appRoutes : Routes =[
   
   providers: [ ],
   bootstrap: [AppComponent],
-  entryComponents: [ModalComponent]
+  entryComponents: [AddHeroComponent, EditHeroComponent, ShowHeroComponent, DeleteHeroComponent]
 })
 export class AppModule { }
