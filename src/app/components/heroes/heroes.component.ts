@@ -8,7 +8,7 @@ import { faFilter} from '@fortawesome/free-solid-svg-icons';
 
 
 
-;
+
 
 @Component({
   selector: 'app-heroes',
@@ -16,7 +16,7 @@ import { faFilter} from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./heroes.component.css']
 })
 export class HeroesComponent  {
-  heroes: any[] = []; //vettore di eroi, con interfaccia Hero
+  heroes = [] as any; //vettore di eroi, con interfaccia Hero
   dataSource = new MatTableDataSource();
   displayedColumns: string[] = ['id', 'name', 'age', 'gender', 'signs', 'notes', 'actions'];
   faFilter = faFilter;
@@ -27,8 +27,7 @@ export class HeroesComponent  {
   constructor(private heroService: HeroService, private modalService: ModalService) { }
 
   ngOnInit(): void {
-    this.getDataProva();
-
+    this.getData();
   }
 
   
@@ -37,23 +36,16 @@ export class HeroesComponent  {
   //per ricevere il dato tramite select-gender
 
 
-  //getProva dal server node
 
-  getDataProva(): void{
-    this.heroService.getHeroesProva().subscribe((response: Hero[])=>{
-
-      this.heroes = Object.values(response);
-      console.log(typeof(this.heroes))
+  getData(): void{
+    this.heroService.getHeroes().subscribe((response: Hero[])=>{
+      this.heroes = response;
       this.dataSource.data = this.heroes;
       this.heroService.tableData = this.dataSource.data;
-    
-    }, (error) =>{
-      console.log('error', error);
     })
+    
   }
-  getData (): string{
-    return this.heroService.sharedData;
-  }
+
 
   filterName(){
     this.dataSource = this.heroService.tableData;

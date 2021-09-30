@@ -1,14 +1,11 @@
 import {  Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {Hero} from '../Hero'
+import {Hero} from '../Hero' //struttura del singolo item
 import {HEROES} from '../mock-heroes'
 
 
 import {MatDialog} from '@angular/material/dialog';
 import { Observable } from 'rxjs';
-
-import {map, filter} from 'rxjs/operators';
-
 
 @Injectable({
   providedIn: 'root'
@@ -25,12 +22,8 @@ export class HeroService {
 
   constructor(public dialog: MatDialog, private http: HttpClient) { }
 
-  getHeroes(): Hero[]{
-    
-    return HEROES;
-  }
-
-  getHeroesProva(): Observable<Hero[]> {
+ 
+  getHeroes(): Observable<Hero[]> {
     return this.http.get<Hero[]>('/api/getHeroes')
   }
 
@@ -44,24 +37,6 @@ export class HeroService {
     console.log(HEROES);
 
   }
-
-
-//prova modal 
- /* openDialog(hero: Hero) {
-    console.log('sono in service',hero)
-    const dialogRef = this.dialog.open(ModalComponent, {
-      width: '500px',
-      height: '500px',
-        data: hero});
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  } */
-
-
-
-
 
 
 

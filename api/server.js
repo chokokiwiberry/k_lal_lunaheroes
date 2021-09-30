@@ -3,7 +3,7 @@ const app = express();
 const heroes = require('../heroes.json')
 
 app.get('/getHeroes', (req, res)=>{
-    res.json(heroes);
+    res.status(200).json(heroes);
 });
 
 app.listen(3000, (req, res)=>{
