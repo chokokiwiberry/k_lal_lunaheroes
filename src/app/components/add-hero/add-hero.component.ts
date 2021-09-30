@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Hero } from 'src/app/Hero';
 import { HeroService } from 'src/app/services/hero.service';
 @Component({
   selector: 'app-add-hero',
@@ -9,6 +9,8 @@ import { HeroService } from 'src/app/services/hero.service';
 
 //si potrebbe fare che add-hero component faccia sia da add che da edit 
 export class AddHeroComponent implements OnInit {
+  @Output() onAddHero: EventEmitter<Hero> = new EventEmitter();
+
     name!: string;
     age!: number;
     gender!: string;
@@ -44,7 +46,12 @@ export class AddHeroComponent implements OnInit {
       signs: this.signs,
       notes: this.notes
     }
+    //this.onAddHero.emit(newHero);
+
+    this.name = ''
+    
     this.heroService.addHero(newHero);
+
     
     }
  
