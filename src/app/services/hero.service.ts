@@ -1,11 +1,13 @@
 import {  Injectable } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
 import {Hero} from '../Hero'
 import {HEROES} from '../mock-heroes'
 
 
-import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
+import { Observable } from 'rxjs';
 
+import {map, filter} from 'rxjs/operators';
 
 
 @Injectable({
@@ -14,16 +16,22 @@ import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 })
 export class HeroService {
   sharedData!: any;
-  tableData!: any;
 
-  chosenGender!: string;
+  tableData!: any; //sono i dati della tabella che servono per fare filtrare e poi mostrare a schermo
+
+  chosenGender!: string; //salvo il valore scelto e lo passo in questa variabile 
 
 
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private http: HttpClient) { }
 
   getHeroes(): Hero[]{
+    
     return HEROES;
+  }
+
+  getHeroesProva(): Observable<Hero[]> {
+    return this.http.get<Hero[]>('/api/getHeroes')
   }
 
   deleteHero(hero: Hero){

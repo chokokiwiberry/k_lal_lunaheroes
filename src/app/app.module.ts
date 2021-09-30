@@ -19,6 +19,7 @@ import { SelectGenderComponent } from './components/select-gender/select-gender.
 import { FilterNameComponent } from './components/filter-name/filter-name.component';
 import { FilterAgeComponent } from './components/filter-age/filter-age.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import {HttpClientModule} from '@angular/common/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ButtonComponent } from './components/button/button.component';
@@ -62,6 +63,7 @@ const appRoutes : Routes =[
     ReactiveFormsModule,
     MatDialogModule,
     BrowserAnimationsModule,
+    HttpClientModule
     
    
   ],
