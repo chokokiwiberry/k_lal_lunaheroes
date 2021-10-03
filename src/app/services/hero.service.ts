@@ -27,13 +27,14 @@ export class HeroService {
 
   chosenGender!: string; //salvo il valore scelto e lo passo in questa variabile 
 
+  sharedHero!: Hero;
 
 
   constructor(public dialog: MatDialog, private http: HttpClient) { }
 
  
   getHeroes(): Observable<Hero[]> {
-    return this.http.get<Hero[]>('/api/getHeroes')
+    return this.http.get<Hero[]>('/api/heroes')
   }
 
   deleteHero(hero: Hero){
@@ -44,7 +45,8 @@ export class HeroService {
     console.log(newHero);
     HEROES.push(newHero);
     console.log(HEROES);
-    return this.http.post<Hero>('/api/postHero', newHero, httpOptions);
+    console.log('sono di addhero service post',this.http.post<Hero>('/api/heroes', newHero, httpOptions))
+    return this.http.post<Hero>('/api/heroes', newHero, httpOptions);
   }
 
 

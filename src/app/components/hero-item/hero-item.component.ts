@@ -62,6 +62,8 @@ export class HeroItemComponent implements OnInit {
     console.log(this.hero);
     this.modalService.loadDelete(hero);
 
+    
+
   }
 
  

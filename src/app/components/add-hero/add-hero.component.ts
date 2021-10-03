@@ -17,6 +17,7 @@ export class AddHeroComponent implements OnInit {
     signs!: string;
     notes!: string;
 
+    heroes!: any;
   constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
@@ -46,12 +47,18 @@ export class AddHeroComponent implements OnInit {
       signs: this.signs,
       notes: this.notes
     }
-    //this.onAddHero.emit(newHero);
+    this.onAddHero.emit(newHero);
 
     this.name = ''
     
-    this.heroService.addHero(newHero);
+   this.heroService.sharedHero = newHero;
 
+   //questa cosa deve essere in hero component
+   this.heroService.addHero(newHero).subscribe( (hero) => (
+    this.heroService.getHeroes(),
+    this.onAddHero.emit(newHero)));
+
+ 
     
     }
  

@@ -57,11 +57,13 @@ export class HeroesComponent  {
    //bisogna di nuovo aggiornare la scelta del filtro
   }
 
-  addHero(newHero: Hero){
+  addHero(data: any){
+    this.getData();
+   /* const newHero = this.heroService.sharedHero;
     console.log('qua non entra proprio, hero components ');
     this.heroService.addHero(newHero).subscribe( (hero) => (
       this.heroes.push(hero)));
-      console.log('sono heros components', this.heroes);
+      console.log('sono heros components', this.heroes); */
   }
   editHero(hero: Hero){
     
