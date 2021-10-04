@@ -31,7 +31,7 @@ app.post('/heroes', (req, res) =>{
 })
 
 //per cancellare un eroe
-app.delete('/:id', function(req, res){
+app.delete('/heroes/:id', function(req, res){
     const found = heroes.some(hero => hero.id === parseInt(req.params.id));
     if (found){
         res.json({msg : 'Hero deleted', heroes:heroes.filter(hero => hero.id !== parseInt(req.params.id))});

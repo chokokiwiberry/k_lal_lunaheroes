@@ -37,9 +37,13 @@ export class HeroService {
     return this.http.get<Hero[]>('/api/heroes')
   }
 
-  deleteHero(hero: Hero){
-    console.log('cancella')
-  }
+  deleteHero(hero: Hero) : Observable<Hero>{
+
+      const url = `/api/heroes/${hero.id}`;
+      console.log('sono url di',url)
+      return this.http.delete<Hero>(url);
+    }
+  
 
   addHero(newHero: Hero) :Observable<Hero>{
     console.log(newHero);
@@ -49,7 +53,7 @@ export class HeroService {
     return this.http.post<Hero>('/api/heroes', newHero, httpOptions);
   }
 
-
+ 
 
 
 

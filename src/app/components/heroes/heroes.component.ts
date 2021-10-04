@@ -4,7 +4,9 @@ import {HeroService} from '../../services/hero.service'
 import { ModalService } from 'src/app/services/modal.service';
 import {MatTableDataSource} from '@angular/material/table';
 import { faFilter} from '@fortawesome/free-solid-svg-icons';
+import { CommonModule }     from '@angular/common';
 //import { HEROES } from 'src/app/mock-heroes';
+
 
 
 
@@ -20,6 +22,7 @@ export class HeroesComponent  {
   dataSource = new MatTableDataSource();
   displayedColumns: string[] = ['id', 'name', 'age', 'gender', 'signs', 'notes', 'actions'];
   faFilter = faFilter;
+  show: boolean= false;
 
   //
   text: string = 'Aggiungi eroe'
@@ -30,7 +33,16 @@ export class HeroesComponent  {
     this.getData();
   }
 
-  
+  Prova(){
+    if (this.show){
+      this.show = false;
+    } else{
+      this.show = true;
+    }
+    if (this.show){
+      this.modalService.loadAdd();
+    }
+  }
 
 
   //per ricevere il dato tramite select-gender
@@ -58,12 +70,16 @@ export class HeroesComponent  {
   }
 
   addHero(data: any){
-    this.getData();
-   /* const newHero = this.heroService.sharedHero;
+    console.log('gneeeee')
+   // this.getData();
+    const newHero = this.heroService.sharedHero;
     console.log('qua non entra proprio, hero components ');
-    this.heroService.addHero(newHero).subscribe( (hero) => (
-      this.heroes.push(hero)));
-      console.log('sono heros components', this.heroes); */
+    this.heroService.addHero(newHero).subscribe( (hero) => {
+      this.getData();
+      this.heroes.push(hero)
+  
+    })
+     console.log('sono addhero heroes components',this.heroes)
   }
   editHero(hero: Hero){
     
@@ -71,7 +87,13 @@ export class HeroesComponent  {
   visualizeHero(hero: Hero){
 
   }
-  deleteHero(hero: Hero){
+  deleteHero(heroD: Hero){
+
+    let indexToBeRemoved = this.heroes.findIndex( (hero: { id: number | undefined; }) => {hero.id === heroD.id});
+   
+    if (indexToBeRemoved != -1){
+    this.heroes.splice(indexToBeRemoved, 1);
+    }
     
   }
 

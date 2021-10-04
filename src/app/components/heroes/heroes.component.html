@@ -78,3 +78,6 @@ l'idea è che si clicca il bottone, triggera la componente modale e dentro la mo
 <button class ="btn btn-primary" (click)="loadAdd()"(onAddHero)="addHero($event)">Aggiungi Eroe</button>
 <!--- heroes prova modal-->
 
+<button class = "btn btn-danger" (click)="Prova()">Prova</button>
+
+<app-add-hero *ngIf="show"></app-add-hero>

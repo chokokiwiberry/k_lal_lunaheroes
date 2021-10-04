@@ -50,6 +50,7 @@ export class ModalService {
   loadDelete(hero: Hero) {
     const dialogRef = this.dialog.open(DeleteHeroComponent, {
       width: '450px',
+      data: hero
     })
 
     dialogRef.afterClosed().subscribe(result => {

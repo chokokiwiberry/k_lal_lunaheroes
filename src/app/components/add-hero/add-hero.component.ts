@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Hero } from 'src/app/Hero';
 import { HeroService } from 'src/app/services/hero.service';
+import { CommonModule }     from '@angular/common';
 @Component({
   selector: 'app-add-hero',
   templateUrl: './add-hero.component.html',
@@ -18,6 +19,8 @@ export class AddHeroComponent implements OnInit {
     notes!: string;
 
     heroes!: any;
+
+    show: boolean = false;
   constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
@@ -52,13 +55,28 @@ export class AddHeroComponent implements OnInit {
     this.name = ''
     
    this.heroService.sharedHero = newHero;
+   this.heroService.addHero(newHero).subscribe(success =>{
+     console.log('sono success di addherocomponent ',success);
+   
+    //qui deve fare anche il getdata() di hero components
+
+
+
+     //this.heroService.getHeroes();
+    /*this.heroService.getHeroes().subscribe((response: Hero[])=>{
+      this.heroes = response; 
+   }) */
+
+    
+  })
+ 
 
    //questa cosa deve essere in hero component
-   this.heroService.addHero(newHero).subscribe( (hero) => (
-    this.heroService.getHeroes(),
+   /*this.heroService.addHero(newHero).subscribe( (hero) => (
+     
     this.onAddHero.emit(newHero)));
 
- 
+  */
     
     }
  
