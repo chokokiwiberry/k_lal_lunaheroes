@@ -69,18 +69,17 @@ export class HeroesComponent  {
 
   }
   editHero(hero: Hero){
+    //put request
     
   }
   visualizeHero(hero: Hero){
 
   }
   deleteHero(heroD: Hero){
-    this.heroService
-    .deleteHero(heroD)
-    .subscribe( () => (
-    this.heroes = this.heroes.filter((h: { id: number | undefined; }) => h.id !== heroD.id)));
-
-    
+    this.heroService.deleteHero(heroD).subscribe( (data) => {
+      console.log(data);
+      this.getData();
+    });  
   }
 
 

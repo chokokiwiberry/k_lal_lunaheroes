@@ -11,6 +11,7 @@ import { ModalService } from 'src/app/services/modal.service';
 import { HeroService } from 'src/app/services/hero.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteHeroComponent } from '../delete-hero/delete-hero.component';
+import { EditHeroComponent } from '../edit-hero/edit-hero.component';
 
 
 
@@ -27,23 +28,24 @@ export class HeroItemComponent implements OnInit {
 
 
 
-  
 
-//icone
+
+  //icone
   faTrash = faTrash;
   faEdit = faEdit;
   faEye = faEye;
 
- 
+
   @Output() onLoadDelete: EventEmitter<Hero> = new EventEmitter();
+  @Output() onLoadEdit: EventEmitter<Hero> = new EventEmitter();
 
-  constructor( private heroService: HeroService, private modalService: ModalService, public dialog: MatDialog,) { 
-    
+  constructor(private heroService: HeroService, private modalService: ModalService, public dialog: MatDialog,) {
+
   }
- 
-  
 
- 
+
+
+
   ngOnInit(): void {
   }
 
@@ -51,44 +53,49 @@ export class HeroItemComponent implements OnInit {
   onEditHero(hero: Hero) {
     console.log('sono modifica');
     console.log(this.hero);
-    this.modalService.loadEdit(hero);
-}
-  onVisualizeHero(hero: Hero) {
-
-    console.log('sono visualizza');
-    console.log(this.hero);
-    this.modalService.loadVisualize(hero); 
-
-  }
-  onDeleteHero(hero: Hero) {
-    console.log('sono cancella');
-    console.log(this.hero);
-    //this.modalService.loadDelete(hero);
-
-      const dialogRef = this.dialog.open(DeleteHeroComponent, {
+    const dialogRef = this.dialog.open(EditHeroComponent, {
       width: '450px',
       data: hero
     })
- 
-   const sub = dialogRef.componentInstance.onDeleteHero.subscribe((hero) => {
-      console.log('sono delete hero subscribe emit, hero',hero);
- 
-      this.onLoadDelete.emit(hero);
-   
-      
-    
+    const sub = dialogRef.componentInstance.onEditHero.subscribe((herodata) => {
+      console.log('sono delete hero subscribe emit, hero', herodata);
+      this.onLoadEdit.emit(herodata);
     });
-    
-    
-    /*dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    }); */
+    return dialogRef.afterClosed();
+  }
+
+  
+  onVisualizeHero(hero: Hero) {
+    console.log('sono visualizza');
+    console.log(this.hero);
+    this.modalService.loadVisualize(hero);
+  }
+
+
+  onDeleteHero(hero: Hero) {
+    console.log('sono cancella');
+    console.log(this.hero);
+
+    const dialogRef = this.dialog.open(DeleteHeroComponent, {
+      width: '450px',
+      data: hero
+    })
+
+    const sub = dialogRef.componentInstance.onDeleteHero.subscribe((herodata) => {
+      console.log('sono delete hero subscribe emit, hero', herodata);
+
+      this.onLoadDelete.emit(herodata);
+
+
+    });
+
+
     return dialogRef.afterClosed();
 
 
   }
 
- 
- 
+
+
 
 }

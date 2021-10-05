@@ -1,30 +1,40 @@
 
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Output, EventEmitter } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Hero } from 'src/app/Hero';
-
+import { HeroService } from 'src/app/services/hero.service';
 @Component({
   selector: 'app-edit-hero',
   templateUrl: './edit-hero.component.html',
   styleUrls: ['./edit-hero.component.css']
 })
 export class EditHeroComponent implements OnInit {
+  @Output() onEditHero: EventEmitter<Hero> = new EventEmitter();
 name!: string;
 age!: number;
 gender!: string; 
 signs!: string; 
 notes!: string; 
 clicked: boolean = false;
-  constructor(@Inject (MAT_DIALOG_DATA) public hero: Hero ) { }
+  constructor(@Inject (MAT_DIALOG_DATA) public hero: Hero, private heroService: HeroService) { }
 
   ngOnInit(): void {
     this.clicked = true;
   }
 
-  chosenGender(){
-
+  chosenGender(): string{
+    return this.gender = this.heroService.chosenGender;
   }
   EditHero(){
+    const updatedHero= {
+      name: this.name,
+      age: this.age,
+      gender: this.chosenGender(),
+      signs: this.signs,
+      notes: this.notes
+
+    }
+    this.onEditHero.emit(updatedHero);
 
   }
 
