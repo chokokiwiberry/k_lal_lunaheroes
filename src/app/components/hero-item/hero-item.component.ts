@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 //Hero è l'interfaccia della struttura dati Hero
 import { Hero } from '../../Hero'
@@ -9,6 +9,8 @@ import { faTrash, faEdit, faEye } from '@fortawesome/free-solid-svg-icons';
 import { ModalService } from 'src/app/services/modal.service';
 //import il service per opendialog
 import { HeroService } from 'src/app/services/hero.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteHeroComponent } from '../delete-hero/delete-hero.component';
 
 
 
@@ -32,9 +34,10 @@ export class HeroItemComponent implements OnInit {
   faEdit = faEdit;
   faEye = faEye;
 
-  //template
+ 
+  @Output() onLoadDelete: EventEmitter<Hero> = new EventEmitter();
 
-  constructor( private heroService: HeroService, private modalService: ModalService) { 
+  constructor( private heroService: HeroService, private modalService: ModalService, public dialog: MatDialog,) { 
     
   }
  
@@ -60,9 +63,28 @@ export class HeroItemComponent implements OnInit {
   onDeleteHero(hero: Hero) {
     console.log('sono cancella');
     console.log(this.hero);
-    this.modalService.loadDelete(hero);
+    //this.modalService.loadDelete(hero);
 
+      const dialogRef = this.dialog.open(DeleteHeroComponent, {
+      width: '450px',
+      data: hero
+    })
+ 
+   const sub = dialogRef.componentInstance.onDeleteHero.subscribe((hero) => {
+      console.log('sono delete hero subscribe emit, hero',hero);
+ 
+      this.onLoadDelete.emit(hero);
+   
+      
     
+    });
+    
+    
+    /*dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    }); */
+    return dialogRef.afterClosed();
+
 
   }
 

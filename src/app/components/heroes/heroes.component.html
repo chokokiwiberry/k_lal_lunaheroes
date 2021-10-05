@@ -55,7 +55,7 @@
     <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let element">
-            <app-hero-item [hero] = "element"> <!-- passo ad hero-item un elemento singolo -->
+            <app-hero-item [hero] = "element" (onLoadDelete)="deleteHero($event)"> <!-- passo ad hero-item un elemento singolo -->
             </app-hero-item>
         </td>
     </ng-container>
@@ -72,12 +72,10 @@
 </div>
 
 
-<!--il bottone per poter aggiungere un eroe nuovo, prima c'era direttamente la componente add-hero,
-l'idea è che si clicca il bottone, triggera la componente modale e dentro la modale c'è add-hero -->
 
-<button class ="btn btn-primary" (click)="loadAdd()"(onAddHero)="addHero($event)">Aggiungi Eroe</button>
-<!--- heroes prova modal-->
 
-<button class = "btn btn-danger" (click)="Prova()">Prova</button>
 
-<app-add-hero *ngIf="show"></app-add-hero>
+
+
+<!---- PROVA PROVA PROVA MODAL -->
+<app-modal (onLoadAdd)="addHero($event)"></app-modal>

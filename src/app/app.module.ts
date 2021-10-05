@@ -27,6 +27,7 @@ import { ButtonComponent } from './components/button/button.component';
 import { EditHeroComponent } from './components/edit-hero/edit-hero.component';
 import { ShowHeroComponent } from './components/show-hero/show-hero.component';
 import { DeleteHeroComponent } from './components/delete-hero/delete-hero.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 
 const appRoutes : Routes =[
@@ -50,6 +51,7 @@ const appRoutes : Routes =[
     EditHeroComponent,
     ShowHeroComponent,
     DeleteHeroComponent,
+    ModalComponent,
 
   ],
   imports: [

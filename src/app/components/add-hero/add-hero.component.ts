@@ -20,7 +20,6 @@ export class AddHeroComponent implements OnInit {
 
     heroes!: any;
 
-    show: boolean = false;
   constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
@@ -30,6 +29,7 @@ export class AddHeroComponent implements OnInit {
     return this.gender = this.heroService.chosenGender;
 
   }
+  //quando l'utente clicca salva, c'è la funzione addHero
   AddHero(){
     console.log('sono add hero in add component hero')
     if (!this.name){
@@ -53,31 +53,8 @@ export class AddHeroComponent implements OnInit {
     this.onAddHero.emit(newHero);
 
     this.name = ''
-    
-   this.heroService.sharedHero = newHero;
-   this.heroService.addHero(newHero).subscribe(success =>{
-     console.log('sono success di addherocomponent ',success);
-   
-    //qui deve fare anche il getdata() di hero components
 
-
-
-     //this.heroService.getHeroes();
-    /*this.heroService.getHeroes().subscribe((response: Hero[])=>{
-      this.heroes = response; 
-   }) */
-
-    
-  })
  
-
-   //questa cosa deve essere in hero component
-   /*this.heroService.addHero(newHero).subscribe( (hero) => (
-     
-    this.onAddHero.emit(newHero)));
-
-  */
-    
     }
  
   

@@ -5,6 +5,7 @@ import { AddHeroComponent } from '../components/add-hero/add-hero.component';
 import { EditHeroComponent } from '../components/edit-hero/edit-hero.component';
 import { ShowHeroComponent } from '../components/show-hero/show-hero.component';
 import { DeleteHeroComponent } from '../components/delete-hero/delete-hero.component';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,14 +15,18 @@ export class ModalService {
   constructor(public dialog: MatDialog) { }
 
 
-  loadAdd() {
+  loadAdd(): Observable<any> {
     const dialogRef = this.dialog.open(AddHeroComponent, {
       width: '450px',
     })
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+    const sub = dialogRef.componentInstance.onAddHero.subscribe((hero) => {
+      console.log('sono loadAdd subscribe emit, hero',hero);
     });
+
+    /*dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    }); */
+    return dialogRef.afterClosed();
 
   }
 
