@@ -1,9 +1,9 @@
-import { Component, OnInit} from '@angular/core';
-import {Hero} from '../../Hero'
-import {HeroService} from '../../services/hero.service'
+import { Component, OnInit } from '@angular/core';
+import { Hero } from '../../Hero'
+import { HeroService } from '../../services/hero.service'
 
-import {MatTableDataSource} from '@angular/material/table';
-import { faFilter} from '@fortawesome/free-solid-svg-icons';
+import { MatTableDataSource } from '@angular/material/table';
+import { faFilter } from '@fortawesome/free-solid-svg-icons';
 //import { HEROES } from 'src/app/mock-heroes';
 
 
@@ -16,7 +16,7 @@ import { faFilter} from '@fortawesome/free-solid-svg-icons';
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.css']
 })
-export class HeroesComponent  {
+export class HeroesComponent {
   heroes = [] as any; //vettore di eroi, con interfaccia Hero
   dataSource = new MatTableDataSource();
   displayedColumns: string[] = ['id', 'name', 'age', 'gender', 'signs', 'notes', 'actions'];
@@ -25,7 +25,7 @@ export class HeroesComponent  {
 
   //
   text: string = 'Aggiungi eroe'
- 
+
   constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
@@ -34,32 +34,50 @@ export class HeroesComponent  {
 
   //per ricevere il dato tramite select-gender
 
-  getData(): void{
+  getData(): void {
     //get request
-    this.heroService.getHeroes().subscribe((response: Hero[])=>{
+    this.heroService.getHeroes().subscribe((response: Hero[]) => {
       this.heroes = response;
       this.dataSource.data = this.heroes;
       this.heroService.tableData = this.dataSource.data;
     })
-    
+
   }
 
 
-  filterName(){
-    this.dataSource = this.heroService.tableData;
+  filterName(string: any) {
+    let tmp = [] as any;
+    if (string) {
+      for (var i = 0; i < this.heroes.length; i = i + 1) {
+        if (this.heroes[i].name === string) {
+          tmp.push(this.heroes[i]);
+        }
+      }
+      this.dataSource = tmp;
+    } else {
+      this.dataSource = this.heroes;
+    }
   }
 
-  filterGender(){
-   console.log('sono filter', this.heroService.tableData);
-   this.dataSource = this.heroService.tableData;
-   //bisogna di nuovo aggiornare la scelta del filtro
+  filterGender(string: any) {
+  let tmp = [] as any;
+    if (string){
+      for (var i=0; i<this.heroes.length; i=i+1){
+        if (this.heroes[i].gender === string){
+          tmp.push(this.heroes[i]);
+        }
+      }
+      this.dataSource = tmp;
+    } else {
+      this.dataSource = this.heroes;
+    }
   }
 
-  filterAge(obj: any){
+  filterAge(obj: any) {
     //filter age riceve un oggetto dove sono contenuti i range scelti dall'utente 
     let tmp = [] as any;
-    for (var i=0; i<this.heroes.length; i=i+1){
-      if (this.heroes[i].age > obj.min && this.heroes[i].age < obj.max){
+    for (var i = 0; i < this.heroes.length; i = i + 1) {
+      if (this.heroes[i].age > obj.min && this.heroes[i].age < obj.max) {
         tmp.push(this.heroes[i]);
       }
     }
@@ -67,37 +85,37 @@ export class HeroesComponent  {
 
   }
 
-  addHero(data: any){
+  addHero(data: any) {
     //post request
     console.log('sono addHero e pusho, heroes components')
-    this.heroService.addHero(data).subscribe( (hero ) => {
-      console.log('sono nuovo hero',hero)
-     
+    this.heroService.addHero(data).subscribe((hero) => {
+      console.log('sono nuovo hero', hero)
+
       this.getData();
     })
 
   }
-  editHero(hero: Hero){
+  editHero(hero: Hero) {
     //put request
     this.heroService.editHero(hero).subscribe();
     this.getData();
   }
-  visualizeHero(hero: Hero){
+  visualizeHero(hero: Hero) {
 
   }
-  deleteHero(heroD: Hero){
+  deleteHero(heroD: Hero) {
     //delete request
-    this.heroService.deleteHero(heroD).subscribe( (data) => {
+    this.heroService.deleteHero(heroD).subscribe((data) => {
       console.log(data);
       this.getData();
-    });  
+    });
   }
 
 
 
- 
 
- 
+
+
 
 
 }

@@ -16,7 +16,7 @@ export class SelectGenderComponent implements OnInit {
     gender : new FormControl(),
   });
  //idea: voglio passare il valore dal child, che è selectGender al padre che è heroes
-  @Output() newItemEvent = new EventEmitter<string>();
+ @Output() onFilterGender: EventEmitter<string> = new EventEmitter();
 
   //schema per la scelta del genere 
   genders =[
@@ -31,6 +31,7 @@ export class SelectGenderComponent implements OnInit {
 
 
 
+
 getValue(): string{
   return this.heroService.sharedData;
 }
@@ -40,23 +41,11 @@ setValue(event: Event){
   const value = element.value;
   this.heroService.sharedData = value;
 }
-
 filterGender(event: Event){
   const element = event.target as HTMLInputElement;
-  const value = element.innerText; //per estrarre l'elemento dalla scelta option
-  var results = [];
-  if (value !== undefined || value !== null){
-    for (var i = 0; i<this.heroService.tableData.length; i++){
-      if (this.heroService.tableData[i].gender === value){
-        results.push(this.heroService.tableData[i]);
-      }
-    }
-  }
-  this.heroService.tableData = results;
+  const value = element.innerText;
+  this.onFilterGender.emit(value);
 }
-setGender(event: Event){
-  const element = event.target as HTMLInputElement;
-  this.heroService.chosenGender = element.innerText;
-}
+
 
 }

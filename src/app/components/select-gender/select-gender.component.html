@@ -6,7 +6,7 @@
       <option *ngFor="let gender of genders" 
       [ngValue]="gender.gender" 
       (click) = "filterGender($event)" 
-      (click)="setGender($event)">
+    >
         {{ gender.gender }}
       </option>
     </select>

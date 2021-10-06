@@ -15,7 +15,7 @@ import {MatInputModule} from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AddHeroComponent } from './components/add-hero/add-hero.component';
 import { HeaderComponent } from './components/header/header.component';
-import { FilterComponent } from './components/filter/filter.component';
+
 import { SelectGenderComponent } from './components/select-gender/select-gender.component';
 import { FilterNameComponent } from './components/filter-name/filter-name.component';
 import { FilterAgeComponent } from './components/filter-age/filter-age.component';
@@ -24,7 +24,6 @@ import {HttpClientModule} from '@angular/common/http';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ButtonComponent } from './components/button/button.component';
 import { EditHeroComponent } from './components/edit-hero/edit-hero.component';
 import { ShowHeroComponent } from './components/show-hero/show-hero.component';
 import { DeleteHeroComponent } from './components/delete-hero/delete-hero.component';
@@ -45,11 +44,9 @@ const appRoutes : Routes =[
     HeroItemComponent,
     AddHeroComponent,
     HeaderComponent,
-    FilterComponent,
     SelectGenderComponent,
     FilterNameComponent,
     FilterAgeComponent,
-    ButtonComponent,
     EditHeroComponent,
     ShowHeroComponent,
     DeleteHeroComponent,

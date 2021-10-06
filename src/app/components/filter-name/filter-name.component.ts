@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {HeroService} from '../../services/hero.service'
 @Component({
   selector: 'app-filter-name',
@@ -6,6 +6,7 @@ import {HeroService} from '../../services/hero.service'
   styleUrls: ['./filter-name.component.css']
 })
 export class FilterNameComponent implements OnInit {
+  @Output() onFilterName: EventEmitter<string> = new EventEmitter(); 
   value = '';
 
   constructor(private heroService: HeroService) { }
@@ -14,7 +15,14 @@ export class FilterNameComponent implements OnInit {
   }
 
 
+  onKey(event: Event){
+    const element = event.target as HTMLInputElement;
+    const value = element.value;
+    this.onFilterName.emit(value);
 
+  }
+
+/*
   //da aggiustare la funzione per cercare da input 
   onKey(event: Event) { //per prendere l'input e filtrarlo sulla tabella
   const element = event.target as HTMLInputElement;
@@ -26,7 +34,7 @@ export class FilterNameComponent implements OnInit {
         results.push(this.heroService.tableData[i]);
       }
     }
-  }
-  this.heroService.tableData = results;
-  }
+  } 
+  //this.heroService.tableData = results;
+  }  */
 }

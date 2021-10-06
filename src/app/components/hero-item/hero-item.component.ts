@@ -6,9 +6,6 @@ import { Hero } from '../../Hero'
 import { faTrash, faEdit, faEye } from '@fortawesome/free-solid-svg-icons';
 
 
-
-
-import { HeroService } from 'src/app/services/hero.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteHeroComponent } from '../delete-hero/delete-hero.component';
 import { EditHeroComponent } from '../edit-hero/edit-hero.component';
@@ -36,7 +33,7 @@ export class HeroItemComponent implements OnInit {
   @Output() onLoadDelete: EventEmitter<Hero> = new EventEmitter();
   @Output() onLoadEdit: EventEmitter<Hero> = new EventEmitter();
 
-  constructor(private heroService: HeroService, public dialog: MatDialog,) {
+  constructor(public dialog: MatDialog,) {
 
   }
 
