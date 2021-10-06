@@ -55,8 +55,15 @@ export class HeroesComponent  {
    //bisogna di nuovo aggiornare la scelta del filtro
   }
 
-  filterAge(obj: object){
+  filterAge(obj: any){
     //filter age riceve un oggetto dove sono contenuti i range scelti dall'utente 
+    let tmp = [] as any;
+    for (var i=0; i<this.heroes.length; i=i+1){
+      if (this.heroes[i].age > obj.min && this.heroes[i].age < obj.max){
+        tmp.push(this.heroes[i]);
+      }
+    }
+    this.dataSource = tmp;
 
   }
 
