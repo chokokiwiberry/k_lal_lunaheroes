@@ -32,25 +32,42 @@ app.post('/heroes', (req, res) => {
 
 //per modificare un singolo eroe 
 app.put('/heroes/:id', function (req, res){
-    //if hero with id exits, if it exists check 
-    let found;
-    for (var i=0; i<heroes.length; i=i+1){
-        if ((parseInt(req.body.id) === (parseInt(heroes[i].id)))){
-            found = true;
-        }
-    }
-    if (found){
-        const updated = {
-            id: req.body.id,
-            name: req.body.name,
-            age: req.body.age,
-            gender: req.body.gender,
-            signs: req.body.signs,
-            notes: req.body.notes
-        }
-        //aggiorno l'eroe in questione
 
+    //trovo l'elemento che mi serve e lo salvo in index
+    var index = heroes.map(function (item) { return item.id; }).indexOf(parseInt(req.params.id)); //find the index of :id
+    if (index === -1) {
+        res.statusCode = 404;
+        return res.send('Error 404: No quote found');
     }
+
+    //salvo l'elemento e faccio il confronto con l'elemento ricevuto dalla richiesta
+    var element = heroes[index];   
+
+    //faccio il confronto e aggiorno
+   if ((parseInt(element.id)) === (parseInt(req.params.id)) ){
+       heroes[index].id = parseInt(req.params.id);
+        if (element.name !== req.body.name){
+            heroes[index].name = req.body.name;
+        }
+        if (element.age !== req.body.age){
+           heroes[index].age = req.body.age;
+        
+        }
+        if (element.gender !== req.body.gender){
+           heroes[index].gender = req.body.gender;
+   
+        }
+        if (element.signs !== req.body.signs){
+            heroes[index].signs = req.body.signs
+           
+        }
+        if (element.notes !== req.body.notes){
+            heroes[index].notes = req.body.notes;      
+        }
+    }
+
+    fs.writeFileSync('../heroes.json', JSON.stringify(heroes));
+res.json('done');
    
 })
 
@@ -63,9 +80,9 @@ app.delete('/heroes/:id', function (req, res) {
         return res.send('Error 404: No quote found');
     }
     
-    console.log('ho trovato index to remove', index);
+
     heroes.splice(index, 1);
-    console.log('sono heroes dopo splice',heroes);
+
     fs.writeFile('../heroes.json', JSON.stringify(heroes), function (err) {
         if (err) throw err;
         res.json(true);

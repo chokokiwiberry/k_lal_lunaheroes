@@ -4,10 +4,11 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Hero } from '../../Hero'
 
 import { faTrash, faEdit, faEye } from '@fortawesome/free-solid-svg-icons';
-//
+
 
 import { ModalService } from 'src/app/services/modal.service';
 //import il service per opendialog
+
 import { HeroService } from 'src/app/services/hero.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteHeroComponent } from '../delete-hero/delete-hero.component';
@@ -26,10 +27,6 @@ export class HeroItemComponent implements OnInit {
   @Input()
   hero!: Hero;
 
-
-
-
-
   //icone
   faTrash = faTrash;
   faEdit = faEdit;
@@ -42,8 +39,6 @@ export class HeroItemComponent implements OnInit {
   constructor(private heroService: HeroService, private modalService: ModalService, public dialog: MatDialog,) {
 
   }
-
-
 
 
   ngOnInit(): void {
@@ -83,16 +78,9 @@ export class HeroItemComponent implements OnInit {
 
     const sub = dialogRef.componentInstance.onDeleteHero.subscribe((herodata) => {
       console.log('sono delete hero subscribe emit, hero', herodata);
-
       this.onLoadDelete.emit(herodata);
-
-
     });
-
-
     return dialogRef.afterClosed();
-
-
   }
 
 

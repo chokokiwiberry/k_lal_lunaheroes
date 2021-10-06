@@ -2,27 +2,31 @@
     <div>
         <h6>Modifica l'eroe</h6>
     </div>
-<div class="form-group">
+    <div>
+      <button class = "btn btn-info" (click)="checkToEnable()">Clicca per modificare</button>
+    </div>
+<div class="form-group" >
     <label for="name">Name*</label>
     <input [disabled]="clicked" type="text" class="form-control" id="name"
-           name="name" [(ngModel)]="name" placeholder = "{{hero.name}}">
+           name="name" [(ngModel)]="name" 
+           >
   </div>
   
   <div class="form-group">
     <label for="age">Age*</label>
     <input [disabled]="clicked" type="text"  class="form-control" id="age"
-            name="age"  [(ngModel)]="age" placeholder = "{{hero.age}}">
+            name="age"  [(ngModel)]="age">
   </div>
   <div>
       <app-select-gender (choose)="chosenGender()"></app-select-gender>
   </div>
   <div class="form-group">
     <label for="signs" >Signs</label>
-   <textarea [disabled]="clicked" [(ngModel)]="signs"placeholder = "{{hero.signs}}"></textarea>
+   <textarea [disabled]="clicked" [(ngModel)]="signs"></textarea>
   </div>
   <div class="form-group">
       <label for="notes">Notes</label>
-      <textarea [disabled]="clicked" [(ngModel)]="notes" placeholder = "{{hero.notes}}"></textarea>
+      <textarea [disabled]="clicked" [(ngModel)]="notes" ></textarea>
   </div>
 
   <mat-dialog-actions align="end">

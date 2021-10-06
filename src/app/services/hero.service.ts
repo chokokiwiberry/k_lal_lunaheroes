@@ -44,7 +44,7 @@ export class HeroService {
 
       const url = `/api/heroes/${hero.id}`;
       console.log('sono url di',url)
-      return this.http.delete<Hero>(url);
+      return this.http.delete<Hero>(url, httpOptions);
     }
   
 
@@ -54,6 +54,11 @@ export class HeroService {
     console.log(HEROES);
     console.log('sono di addhero service post',this.http.post<Hero>('/api/heroes', newHero, httpOptions))
     return this.http.post<Hero>('/api/heroes', newHero, httpOptions);
+  }
+
+  editHero(updatedHero: Hero): Observable<Hero>{
+    const url = `/api/heroes/${updatedHero.id}`;
+    return this.http.put<Hero>(url, updatedHero, httpOptions);
   }
 
  

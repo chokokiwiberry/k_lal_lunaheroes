@@ -32,14 +32,10 @@ export class HeroesComponent  {
     this.getData();
   }
 
-
-
-
   //per ricevere il dato tramite select-gender
 
-
-
   getData(): void{
+    //get request
     this.heroService.getHeroes().subscribe((response: Hero[])=>{
       this.heroes = response;
       this.dataSource.data = this.heroes;
@@ -60,6 +56,7 @@ export class HeroesComponent  {
   }
 
   addHero(data: any){
+    //post request
     console.log('sono addHero e pusho, heroes components')
     this.heroService.addHero(data).subscribe( (hero ) => {
       console.log('sono nuovo hero',hero)
@@ -70,12 +67,14 @@ export class HeroesComponent  {
   }
   editHero(hero: Hero){
     //put request
-    
+    this.heroService.editHero(hero).subscribe();
+    this.getData();
   }
   visualizeHero(hero: Hero){
 
   }
   deleteHero(heroD: Hero){
+    //delete request
     this.heroService.deleteHero(heroD).subscribe( (data) => {
       console.log(data);
       this.getData();
