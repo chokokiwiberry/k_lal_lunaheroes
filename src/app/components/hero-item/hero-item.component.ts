@@ -6,13 +6,13 @@ import { Hero } from '../../Hero'
 import { faTrash, faEdit, faEye } from '@fortawesome/free-solid-svg-icons';
 
 
-import { ModalService } from 'src/app/services/modal.service';
-//import il service per opendialog
+
 
 import { HeroService } from 'src/app/services/hero.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteHeroComponent } from '../delete-hero/delete-hero.component';
 import { EditHeroComponent } from '../edit-hero/edit-hero.component';
+import { ShowHeroComponent } from '../show-hero/show-hero.component';
 
 
 
@@ -36,7 +36,7 @@ export class HeroItemComponent implements OnInit {
   @Output() onLoadDelete: EventEmitter<Hero> = new EventEmitter();
   @Output() onLoadEdit: EventEmitter<Hero> = new EventEmitter();
 
-  constructor(private heroService: HeroService, private modalService: ModalService, public dialog: MatDialog,) {
+  constructor(private heroService: HeroService, public dialog: MatDialog,) {
 
   }
 
@@ -56,14 +56,22 @@ export class HeroItemComponent implements OnInit {
       console.log('sono delete hero subscribe emit, hero', herodata);
       this.onLoadEdit.emit(herodata);
     });
-    return dialogRef.afterClosed();
+     dialogRef.afterClosed();
   }
 
   
   onVisualizeHero(hero: Hero) {
     console.log('sono visualizza');
     console.log(this.hero);
-    this.modalService.loadVisualize(hero);
+  
+    const dialogRef = this.dialog.open(ShowHeroComponent, {
+      width: '450px',
+      data: hero
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
 
@@ -80,7 +88,7 @@ export class HeroItemComponent implements OnInit {
       console.log('sono delete hero subscribe emit, hero', herodata);
       this.onLoadDelete.emit(herodata);
     });
-    return dialogRef.afterClosed();
+     dialogRef.afterClosed();
   }
 
 

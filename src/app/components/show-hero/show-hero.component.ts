@@ -8,6 +8,11 @@ import { Hero } from 'src/app/Hero';
   styleUrls: ['./show-hero.component.css']
 })
 export class ShowHeroComponent implements OnInit {
+  name!: string;
+  age!: number;
+  gender!: string;
+  signs!: string;
+  notes!: string;
   
   clicked: boolean = false;
 
@@ -15,6 +20,11 @@ export class ShowHeroComponent implements OnInit {
 
   ngOnInit(): void {
     this.clicked = true;
+    this.name = this.hero.name;
+    this.age = this.hero.age;
+    this.gender = this.hero.gender;
+    this.signs = this.hero.signs;
+    this.notes = this.hero.notes;
   }
 
 }

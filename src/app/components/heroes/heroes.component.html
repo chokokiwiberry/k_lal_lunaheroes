@@ -6,7 +6,7 @@
 
     <app-filter-name filterName = "filterName()"></app-filter-name>
 
-    <app-filter-age></app-filter-age>
+    <app-filter-age (onFilterAge)="filterAge($event)"></app-filter-age>
       
     <app-select-gender (click)="filterGender()"></app-select-gender>
 

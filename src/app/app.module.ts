@@ -21,6 +21,7 @@ import { FilterNameComponent } from './components/filter-name/filter-name.compon
 import { FilterAgeComponent } from './components/filter-age/filter-age.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import {HttpClientModule} from '@angular/common/http';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ButtonComponent } from './components/button/button.component';
@@ -28,6 +29,7 @@ import { EditHeroComponent } from './components/edit-hero/edit-hero.component';
 import { ShowHeroComponent } from './components/show-hero/show-hero.component';
 import { DeleteHeroComponent } from './components/delete-hero/delete-hero.component';
 import { ModalComponent } from './components/modal/modal.component';
+
 
 
 const appRoutes : Routes =[
@@ -67,7 +69,8 @@ const appRoutes : Routes =[
     MatDialogModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    NgxSliderModule
     
    
   ],

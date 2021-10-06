@@ -1,15 +1,6 @@
 <div class = "age_wrapper">
-    <!----da sistemare età min-->
-    <div class = "min_age">
-    <label for="customRange1" class="form-label">Età minima</label>
-    <input type="range" class="form-range" id="customRangeMin">
-    </div>
-
-    <!----da sistemare età max-->
-    <div class ="max_age">
-    <label for="customRange1" class="form-label">Età massima</label>
-    <input type="range" class="form-range" id="customRangeMax">
-    </div>
+ 
+    <ngx-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options" (click)="chosenAge()"></ngx-slider>
 
     
 </div>

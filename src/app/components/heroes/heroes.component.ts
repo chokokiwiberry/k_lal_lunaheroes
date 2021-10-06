@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import {Hero} from '../../Hero'
 import {HeroService} from '../../services/hero.service'
-import { ModalService } from 'src/app/services/modal.service';
+
 import {MatTableDataSource} from '@angular/material/table';
 import { faFilter} from '@fortawesome/free-solid-svg-icons';
 //import { HEROES } from 'src/app/mock-heroes';
@@ -26,7 +26,7 @@ export class HeroesComponent  {
   //
   text: string = 'Aggiungi eroe'
  
-  constructor(private heroService: HeroService, private modalService: ModalService) { }
+  constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
     this.getData();
@@ -53,6 +53,11 @@ export class HeroesComponent  {
    console.log('sono filter', this.heroService.tableData);
    this.dataSource = this.heroService.tableData;
    //bisogna di nuovo aggiornare la scelta del filtro
+  }
+
+  filterAge(obj: object){
+    //filter age riceve un oggetto dove sono contenuti i range scelti dall'utente 
+
   }
 
   addHero(data: any){
