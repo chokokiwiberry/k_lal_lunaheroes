@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express();
-const heroes = require('../heroes.json');
+const heroes = require('../public/heroes.json');
 const fs = require('fs')
+var path = require('path');
 
 app.use(express.json());
 
@@ -26,8 +27,8 @@ app.post('/heroes', (req, res) => {
 
     heroes.push(newHero);
     console.log('server sono post dopo push', heroes);
+    fs.writeFileSync(path.join(__dirname, '../public/heroes.json'), JSON.stringify(heroes));
     res.json(heroes);
-    fs.writeFileSync('../heroes.json', JSON.stringify(heroes));
 })
 
 //per modificare un singolo eroe 
@@ -66,7 +67,7 @@ app.put('/heroes/:id', function (req, res){
         }
     }
 
-    fs.writeFileSync('../heroes.json', JSON.stringify(heroes));
+    fs.writeFileSync(path.join(__dirname, '../public/heroes.json'), JSON.stringify(heroes));
 res.json('done');
    
 })
@@ -83,10 +84,8 @@ app.delete('/heroes/:id', function (req, res) {
 
     heroes.splice(index, 1);
 
-    fs.writeFile('../heroes.json', JSON.stringify(heroes), function (err) {
-        if (err) throw err;
-        res.json(true);
-    });
+    fs.writeFileSync(path.join(__dirname, '../public/heroes.json'), JSON.stringify(heroes));
+    res.json('done');
 })
 
 app.listen(3000, (req, res) => {
