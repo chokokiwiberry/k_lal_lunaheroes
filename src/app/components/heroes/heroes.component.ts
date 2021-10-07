@@ -3,8 +3,8 @@ import { Hero } from '../../Hero'
 import { HeroService } from '../../services/hero.service'
 
 import { MatTableDataSource } from '@angular/material/table';
-import { faFilter } from '@fortawesome/free-solid-svg-icons';
-import {MatExpansionModule} from '@angular/material/expansion';
+
+
 //import { HEROES } from 'src/app/mock-heroes';
 
 
@@ -17,8 +17,7 @@ export class HeroesComponent {
   heroes = [] as any; //vettore di eroi, con interfaccia Hero
   dataSource = new MatTableDataSource();
   displayedColumns: string[] = ['name', 'age', 'gender', 'signs', 'notes', 'actions'];
-  faFilter = faFilter;
-  panelOpenState = false;
+
 
   //
   text: string = 'Aggiungi eroe'

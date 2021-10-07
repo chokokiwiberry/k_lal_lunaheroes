@@ -1,7 +1,7 @@
 <div class = "gender_div">
   <label for="gender_select">Sesso</label>
 <form [formGroup]="form">
-    <select formControlName="gender_select">
+    <select>
      
       <option *ngFor="let gender of genders" 
       [ngValue]="gender.gender" 

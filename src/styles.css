@@ -4,7 +4,6 @@
 body{
   background-color:#E9ECEF;
 }
-/* div_filter*/
 
 select {
     font-family: "Font Awesome 5 Free";
@@ -85,4 +84,17 @@ table {
 }
 .age_wrapper .ngx-slider .ngx-slider-selection{
   background-color: #495057
+}
+
+mat-panel-title {
+  justify-content: right !important;
+}
+div.filters_container{
+  display: flex;
+  justify-content: space-evenly;
+}
+div.filters_container div {
+  width: 350px;
+  height: 100px;
+  
 }
