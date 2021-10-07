@@ -4,6 +4,7 @@ import { HeroService } from '../../services/hero.service'
 
 import { MatTableDataSource } from '@angular/material/table';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
+import {MatExpansionModule} from '@angular/material/expansion';
 //import { HEROES } from 'src/app/mock-heroes';
 
 
@@ -15,9 +16,9 @@ import { faFilter } from '@fortawesome/free-solid-svg-icons';
 export class HeroesComponent {
   heroes = [] as any; //vettore di eroi, con interfaccia Hero
   dataSource = new MatTableDataSource();
-  displayedColumns: string[] = ['id', 'name', 'age', 'gender', 'signs', 'notes', 'actions'];
+  displayedColumns: string[] = ['name', 'age', 'gender', 'signs', 'notes', 'actions'];
   faFilter = faFilter;
-
+  panelOpenState = false;
 
   //
   text: string = 'Aggiungi eroe'
@@ -82,10 +83,8 @@ export class HeroesComponent {
 
   addHero(data: any) {
     //post request
-    console.log('sono addHero e pusho, heroes components')
     this.heroService.addHero(data).subscribe((hero) => {
       console.log('sono nuovo hero', hero)
-
       this.getData();
     })
 
@@ -96,7 +95,7 @@ export class HeroesComponent {
     this.getData();
   }
   visualizeHero(hero: Hero) {
-
+    //
   }
   deleteHero(heroD: Hero) {
     //delete request

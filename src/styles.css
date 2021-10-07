@@ -2,12 +2,10 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css"; /**/
 
 body{
-  background-color:#d9d9d9;
+  background-color:#E9ECEF;
 }
 /* div_filter*/
-.div_filter{
-  align-content: right;
-}
+
 select {
     font-family: "Font Awesome 5 Free";
     font-weight: 400;
@@ -42,18 +40,10 @@ table {
   margin-left: 10px;
 }
 
+.button:hover{
 
-
-
-/* modal prova*/
-/* Overwrite the styles of the mat-dialog-container element globally, but only for those
-that have an id of `modal-component` */
-/* https://stackoverflow.com/a/48689004/9263761 */
-mat-dialog-container#modal-component {
-  border: 3px solid #262626;
-  border-radius: 11px;
-  background-color: #ffffff;
 }
+
 
 #modal-content-wrapper {
   width: 100%;
@@ -86,4 +76,13 @@ mat-dialog-container#modal-component {
   text-align: center;
   font-family: 'Brush Script MT';
   font-size: 48px;
+  color: #343A40;
+}
+
+/*age slider bar */
+.age_wrapper .ngx-slider .ngx-slider-pointer{
+  background-color: #495057
+}
+.age_wrapper .ngx-slider .ngx-slider-selection{
+  background-color: #495057
 }

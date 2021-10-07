@@ -26,6 +26,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@ng-bootstrap/ng-bootstrap": "^10.0.0",
+    "angular-material-expansion-panel": "^0.7.2",
     "bootstrap": "^4.5.0",
     "mdb-angular-ui-kit": "^1.2.0",
     "ng-uikit-pro-standard": "^1.0.0",

@@ -23,12 +23,14 @@ import { MatDialogModule } from '@angular/material/dialog';
 import {HttpClientModule} from '@angular/common/http';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import {MatSelectModule} from '@angular/material/select';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditHeroComponent } from './components/edit-hero/edit-hero.component';
 import { ShowHeroComponent } from './components/show-hero/show-hero.component';
 import { DeleteHeroComponent } from './components/delete-hero/delete-hero.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { FilterComponent } from './components/filter/filter.component';
 
 
 
@@ -52,6 +54,7 @@ const appRoutes : Routes =[
     ShowHeroComponent,
     DeleteHeroComponent,
     ModalComponent,
+    FilterComponent,
 
   ],
   imports: [
@@ -69,7 +72,8 @@ const appRoutes : Routes =[
     HttpClientModule,
     CommonModule,
     NgxSliderModule,
-    MatSelectModule
+    MatSelectModule,
+    MatExpansionModule
     
    
   ],

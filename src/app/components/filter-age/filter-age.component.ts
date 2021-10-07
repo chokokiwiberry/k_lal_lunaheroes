@@ -10,17 +10,17 @@ import { LabelType, Options } from '@angular-slider/ngx-slider'
 export class FilterAgeComponent implements OnInit {
   @Output() onFilterAge: EventEmitter<object> = new EventEmitter();  
   
-  minValue: number = 250;
-  maxValue: number = 750;
+  minValue: number = 25;
+  maxValue: number = 75;
   options: Options = {
     floor: 0,
-    ceil: 1000,
+    ceil: 100,
     translate: (value: number, label: LabelType): string => {  
       switch (label) {  
           case LabelType.Low:  
-              return "<b>Min age:</b> " + value;  
+              return "<b>Età min:</b> " + value;  
           case LabelType.High:  
-              return "<b>Max age:</b> " + value;  
+              return "<b>Età max:</b> " + value;  
           default:  
               return "" + value;  
       }  
