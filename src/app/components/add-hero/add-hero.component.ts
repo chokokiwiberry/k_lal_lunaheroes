@@ -1,7 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Hero } from 'src/app/Hero';
-import { HeroService } from 'src/app/services/hero.service';
-import { CommonModule }     from '@angular/common';
+
 @Component({
   selector: 'app-add-hero',
   templateUrl: './add-hero.component.html',
@@ -20,13 +19,13 @@ export class AddHeroComponent implements OnInit {
 
     heroes!: any;
 
-  constructor(private heroService: HeroService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
-  chosenGender(): string{
-    return this.gender = this.heroService.chosenGender;
+  chosenGender(string: any): string{
+    return this.gender = string; 
 
   }
   //quando l'utente clicca salva, c'è la funzione addHero
@@ -40,19 +39,20 @@ export class AddHeroComponent implements OnInit {
       alert('Inserire un un\'\ età');
       return;
     } 
-    if (!this.chosenGender){
+    if (!this.gender){
       alert('Si scelga un genere');
     }
     const newHero = {
       name: this.name,
       age: this.age,
-      gender: this.chosenGender(),
+      gender: this.gender,
       signs: this.signs,
       notes: this.notes
     }
     this.onAddHero.emit(newHero);
 
     this.name = ''
+    
 
  
     }

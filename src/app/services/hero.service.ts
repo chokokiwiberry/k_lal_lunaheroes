@@ -21,7 +21,6 @@ export class HeroService {
 
 
 
-  sharedData!: any;
 
   tableData!: any; //sono i dati della tabella che servono per fare filtrare e poi mostrare a schermo
 

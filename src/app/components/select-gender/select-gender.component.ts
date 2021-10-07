@@ -20,6 +20,7 @@ export class SelectGenderComponent implements OnInit {
 
   //schema per la scelta del genere 
   genders =[
+    {gender : ''},
     {gender: 'M'},
     {gender: 'F'}
   ]
@@ -32,15 +33,6 @@ export class SelectGenderComponent implements OnInit {
 
 
 
-getValue(): string{
-  return this.heroService.sharedData;
-}
-
-setValue(event: Event){
-  const element = event.target as HTMLInputElement;
-  const value = element.value;
-  this.heroService.sharedData = value;
-}
 filterGender(event: Event){
   const element = event.target as HTMLInputElement;
   const value = element.innerText;

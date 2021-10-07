@@ -1,11 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css"; /**/
 
-
+body{
+  background-color:#d9d9d9;
+}
+/* div_filter*/
+.div_filter{
+  align-content: right;
+}
 select {
     font-family: "Font Awesome 5 Free";
     font-weight: 400;
-    
   }
   /* Structure */
 table {
@@ -16,10 +21,7 @@ table {
     font-size: 14px;
     width: 100%;
   }
-.form-login{
-    
 
-}
 
 .div-login{
     margin-top: 100px;
@@ -41,17 +43,7 @@ table {
 }
 
 
-/* sezione div età minima massima */
-.age_wrapper{
-  display:flex;
-}
-.min_age{
-  margin: 0 10px;
-  flex: 1;
-}
-.max_age{
-  flex: 1;
-}
+
 
 /* modal prova*/
 /* Overwrite the styles of the mat-dialog-container element globally, but only for those
@@ -86,4 +78,12 @@ mat-dialog-container#modal-component {
 
 #modal-cancel-button {
   background-color: #ffffff;
+}
+
+
+/* Parte per l'header */
+#luna_heroes_header{
+  text-align: center;
+  font-family: 'Brush Script MT';
+  font-size: 48px;
 }

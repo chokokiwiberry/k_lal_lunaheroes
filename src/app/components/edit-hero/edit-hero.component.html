@@ -18,7 +18,7 @@
             name="age"  [(ngModel)]="age">
   </div>
   <div>
-      <app-select-gender (choose)="chosenGender()"></app-select-gender>
+      <app-select-gender (onFilterGender)="chosenGender($event)"[(ngModel)]="gender"></app-select-gender>
   </div>
   <div class="form-group">
     <label for="signs" >Signs</label>

@@ -11,6 +11,7 @@
     <app-select-gender (onFilterGender)="filterGender($event)"></app-select-gender>
 
 </div>
+<app-modal (onLoadAdd)="addHero($event)"></app-modal>
 
 <div class = "div_tablehero">
 <table mat-table [dataSource]="dataSource">
@@ -79,5 +80,3 @@
 
 
 
-<!---- PROVA PROVA PROVA MODAL -->
-<app-modal (onLoadAdd)="addHero($event)"></app-modal>

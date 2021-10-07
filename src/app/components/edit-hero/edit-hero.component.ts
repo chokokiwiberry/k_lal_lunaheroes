@@ -20,7 +20,7 @@ clicked: boolean = false;
 
 
 
-  constructor(@Inject (MAT_DIALOG_DATA) public hero: Hero, private heroService: HeroService) { }
+  constructor(@Inject (MAT_DIALOG_DATA) public hero: Hero) { }
 
   ngOnInit(): void {
     this.clicked = true;
@@ -32,9 +32,6 @@ clicked: boolean = false;
     
   }
 
-  chosenGender(): string{
-    return this.gender = this.heroService.chosenGender;
-  }
 
   checkToEnable(){
     if (this.clicked){
@@ -42,13 +39,16 @@ clicked: boolean = false;
     } 
     else this.clicked = true;
   }
+  chosenGender(string: any):string{
+    return this.gender = string;
+  }
 
   EditHero(){
     const updatedHero = {
       id: this.hero.id,
       name: this.name,
       age: this.age,
-      gender: this.chosenGender(),
+      gender: this.gender,
       signs: this.signs,
       notes: this.notes
 

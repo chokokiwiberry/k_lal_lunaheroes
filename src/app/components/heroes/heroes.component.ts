@@ -7,10 +7,6 @@ import { faFilter } from '@fortawesome/free-solid-svg-icons';
 //import { HEROES } from 'src/app/mock-heroes';
 
 
-
-
-
-
 @Component({
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
@@ -41,7 +37,6 @@ export class HeroesComponent {
       this.dataSource.data = this.heroes;
       this.heroService.tableData = this.dataSource.data;
     })
-
   }
 
 
@@ -110,11 +105,6 @@ export class HeroesComponent {
       this.getData();
     });
   }
-
-
-
-
-
 
 
 
