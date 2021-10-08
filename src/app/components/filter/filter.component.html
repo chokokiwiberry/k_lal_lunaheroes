@@ -1,21 +1,35 @@
 <div class="filter_container">
+    <mat-accordion>
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
 
-    <div >
-        <div >
-            <h6>
-                Filtra <fa-icon [icon]="faFilter"></fa-icon>
-            </h6>
-        </div>
-    </div>
-    <div class="row filters_container justify-content-between" >
-        <div class="row" id="left">
-            <app-filter-name (onFilterName)="filterName($event)"></app-filter-name>
-        </div>
-        <div class="row" id="center">
-            <app-filter-age (onFilterAge)="filterAge($event)"></app-filter-age>
-        </div>
-        <div class="row" id="right">
-            <app-select-gender (onFilterGender)="filterGender($event)"></app-select-gender>
-        </div>
-    </div>
+                    <div>
+                        <div>
+                            <h6>
+                                <div id=filter_title>Filtra <mat-icon>filter_alt</mat-icon>
+                                </div>
+                            </h6>
+                        </div>
+                    </div>
+                </mat-panel-title>
+
+            </mat-expansion-panel-header>
+
+            <div class="filters_container">
+                <div id="name_component">
+                    <app-filter-name (onFilterName)="filterName($event)"></app-filter-name>
+                </div>
+                <div id="age_component">
+                    <app-filter-age (onFilterAge)="filterAge($event)"></app-filter-age>
+                </div>
+                <div id="gender_component">
+                    <app-select-gender (onFilterGender)="filterGender($event)"></app-select-gender>
+                </div>
+            </div>
+        </mat-expansion-panel>
+
+    </mat-accordion>
+
+
 </div>

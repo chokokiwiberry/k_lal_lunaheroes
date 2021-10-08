@@ -1,5 +1,10 @@
-<div class = "div_input">
-    <label for="input" class="form-label">Inserisci un nome </label>
+<div class = "input_wrapper">
+    <div>
+    <mat-icon style="margin-top:-2px" matPrefix></mat-icon>
+  </div>
+  <span matPrefix>
+    <mat-icon matPrefix>search</mat-icon>
+  </span>
     <input id ="inputsearch" (keyup.enter)="onKey($event)" #input placeholder="Nome da cercare">
-    <p>{{value}}</p>
+   
 </div>

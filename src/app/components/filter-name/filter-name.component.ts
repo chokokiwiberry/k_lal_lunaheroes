@@ -8,7 +8,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 })
 export class FilterNameComponent implements OnInit {
   @Output() onFilterName: EventEmitter<string> = new EventEmitter(); 
-  value = '';
+
   faSearch = faSearch;
   constructor(private heroService: HeroService) { }
 
