@@ -6,13 +6,15 @@ body{
 }
 
 select {
-    font-family: "Font Awesome 5 Free";
-    font-weight: 400;
-  }
+  font-family: 'FontAwesome', 'sans-serif';
+  
+}
   /* Structure */
 table {
     width: 100%;
+   
   }
+
   
   .mat-form-field {
     font-size: 14px;
@@ -34,10 +36,10 @@ table {
     margin-top: 50px;
 }
 
-/* sezione div nome da cercare */
+/* sezione div nome da cercare 
 #inputsearch {
   margin-left: 10px;
-}
+} */
 
 .button:hover{
 
@@ -86,15 +88,32 @@ table {
   background-color: #495057
 }
 
-mat-panel-title {
-  justify-content: right !important;
+
+
+
+
+.hero_buttons div{
+  display:inline-block;
 }
-div.filters_container{
-  display: flex;
-  justify-content: space-evenly;
+.btn{
+  font-size: small;
+  text-align: center;
+  width: 115px;
+  height:30px;
+  justify-content: center;
+  align-items: center;
+ 
 }
-div.filters_container div {
-  width: 350px;
-  height: 100px;
-  
+.btn div{
+  justify-content: center;
+  align-items: center;
 }
+#left{ /*the filter div*/
+  float: left;
+  border:1px solid black;
+}
+#right{ /*the table div*/
+  float: right;
+  border:1px solid black;
+}
+

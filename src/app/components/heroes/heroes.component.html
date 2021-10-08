@@ -1,63 +1,64 @@
+<div id = "add_button" class = "d-flex justify-content-end">
+<app-modal (onLoadAdd)="addHero($event)"></app-modal>
+</div>
+<div class="row ">
+    <div class="col-4" id = "left">
+        <app-filter (onFilterName)="filterName($event)" (onFilterAge)="filterAge($event)"
+            (onFilterGender)="filterGender($event)"></app-filter>
+    </div>
+    <div class ="col-8" id = "right">
+    <div class="div_tablehero">
+        <table mat-table [dataSource]="dataSource">
 
-<app-filter
-(onFilterName)="filterName($event)"
-(onFilterAge)="filterAge($event)"
-(onFilterGender)="filterGender($event)"></app-filter>
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Nome </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <!-- age Column -->
+            <ng-container matColumnDef="age">
+                <th mat-header-cell *matHeaderCellDef> Età </th>
+                <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+            </ng-container>
+
+            <!-- gender Column -->
+            <ng-container matColumnDef="gender">
+                <th mat-header-cell *matHeaderCellDef> Sesso </th>
+                <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+            </ng-container>
+
+            <!-- signs column-->
+            <ng-container matColumnDef="signs">
+                <th mat-header-cell *matHeaderCellDef> Segni Particolari </th>
+                <td mat-cell *matCellDef="let element"> {{element.signs}} </td>
+            </ng-container>
+
+            <!-- notes column-->
+            <ng-container matColumnDef="notes">
+                <th mat-header-cell *matHeaderCellDef> Note </th>
+                <td mat-cell *matCellDef="let element"> {{element.notes}} </td>
+            </ng-container>
+
+            <!-- actions column-->
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef> Azioni </th>
+                <td mat-cell *matCellDef="let element">
+                    <app-hero-item [hero]="element" (onLoadDelete)="deleteHero($event)" (onLoadEdit)="editHero($event)">
+                        <!-- passo ad hero-item un elemento singolo -->
+                    </app-hero-item>
+                </td>
+            </ng-container>
 
 
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">Nessun risultato</td>
+            </tr>
 
-<div class="div_tablehero">
-    <app-modal (onLoadAdd)="addHero($event)"></app-modal>
-    <table mat-table [dataSource]="dataSource">
-
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef> Nome </th>
-            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-        </ng-container>
-
-        <!-- age Column -->
-        <ng-container matColumnDef="age">
-            <th mat-header-cell *matHeaderCellDef> Età </th>
-            <td mat-cell *matCellDef="let element"> {{element.age}} </td>
-        </ng-container>
-
-        <!-- gender Column -->
-        <ng-container matColumnDef="gender">
-            <th mat-header-cell *matHeaderCellDef> Sesso </th>
-            <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
-        </ng-container>
-
-        <!-- signs column-->
-        <ng-container matColumnDef="signs">
-            <th mat-header-cell *matHeaderCellDef> Segni Particolari </th>
-            <td mat-cell *matCellDef="let element"> {{element.signs}} </td>
-        </ng-container>
-
-        <!-- notes column-->
-        <ng-container matColumnDef="notes">
-            <th mat-header-cell *matHeaderCellDef> Note </th>
-            <td mat-cell *matCellDef="let element"> {{element.notes}} </td>
-        </ng-container>
-
-        <!-- actions column-->
-        <ng-container matColumnDef="actions">
-            <th mat-header-cell *matHeaderCellDef> Azioni </th>
-            <td mat-cell *matCellDef="let element">
-                <app-hero-item [hero]="element" (onLoadDelete)="deleteHero($event)" (onLoadEdit)="editHero($event)">
-                    <!-- passo ad hero-item un elemento singolo -->
-                </app-hero-item>
-            </td>
-        </ng-container>
-
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-        <tr class="mat-row" *matNoDataRow>
-            <td class="mat-cell" colspan="4">Nessun risultato</td>
-        </tr>
-
-    </table>
+        </table>
+    </div>
+</div>
 </div>

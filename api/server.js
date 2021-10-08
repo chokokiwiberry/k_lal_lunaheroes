@@ -3,10 +3,15 @@ const app = express();
 const heroes = require('../public/heroes.json');
 const fs = require('fs')
 var path = require('path');
+const cors = require('cors');
 
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: false })); 
+
+app.use(cors());
+
+app.options('*', cors());
 
 app.get('/heroes', (req, res) => {
     res.status(200).json(heroes);

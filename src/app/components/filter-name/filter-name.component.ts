@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {HeroService} from '../../services/hero.service'
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-filter-name',
   templateUrl: './filter-name.component.html',
@@ -8,7 +9,7 @@ import {HeroService} from '../../services/hero.service'
 export class FilterNameComponent implements OnInit {
   @Output() onFilterName: EventEmitter<string> = new EventEmitter(); 
   value = '';
-
+  faSearch = faSearch;
   constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {

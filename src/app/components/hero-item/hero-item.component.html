@@ -1,18 +1,33 @@
-<div class="hero">
-
-    <button (click)="onEditHero(hero)">
-
+<!--<div class="hero_buttons">
+    
+     
+    <button (click)="onEditHero(hero)" class = "btn btn-warning">
+        <div id="edit_button">
         <fa-icon [icon]="faEdit"></fa-icon>
+        Modifica 
+        </div>
     </button>
 
-    <button (click)="onVisualizeHero(hero)">
+    <div id= "visualize_button">
+        <button (click)="onVisualizeHero(hero)" class = "btn btn-primary">   
+            <fa-icon [icon]="faEye"></fa-icon>
 
-        <fa-icon [icon]="faEye"></fa-icon>
+            Visualizza
+        </button>
+    </div>
+   
+<div id= "delete_button">
+<button (click)="onDeleteHero(hero)" class = "btn btn-danger">
+    <fa-icon [icon]="faTrash"></fa-icon>
+        Cancella
     </button>
-
-    <button (click)="onDeleteHero(hero)">
-
-        <fa-icon [icon]="faTrash"></fa-icon>
-    </button>
-
 </div>
+</div> 
+--->
+
+<select>
+<option value="fa-align-left">&#xf036; fa-align-left</option>
+<option value="fa-align-right">&#xf038; fa-align-right</option>
+<option value="fa-amazon">&#xf270; fa-amazon</option>
+<option value="fa-ambulance">&#xf0f9; fa-ambulance</option>
+</select>

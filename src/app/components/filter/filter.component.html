@@ -1,32 +1,21 @@
-<div class="filter_part">
-    <mat-accordion class="headers-align">
+<div class="filter_container">
 
-        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    <div class="d-flex">
-                        <div class="ml-auto p-2">
-                            <h6>
-                                Filtra <fa-icon [icon]="faFilter"></fa-icon>
-                            </h6>
-                        </div>
-
-                    </div>
-                </mat-panel-title>
-            </mat-expansion-panel-header>
-            <div class="row filters_container justify-content-between" id="id_filtercontainer">
-                <div class = "col">
-                    <app-filter-name (onFilterName)="filterName($event)"></app-filter-name>
-                </div>
-                <div class = "col"> 
-                    <app-filter-age (onFilterAge)="filterAge($event)"></app-filter-age>
-                </div>
-                <div class ="col">
-                    <app-select-gender (onFilterGender)="filterGender($event)"></app-select-gender>
-                </div>
-            </div>
-        </mat-expansion-panel>
-    </mat-accordion>
-
-
+    <div >
+        <div >
+            <h6>
+                Filtra <fa-icon [icon]="faFilter"></fa-icon>
+            </h6>
+        </div>
+    </div>
+    <div class="row filters_container justify-content-between" >
+        <div class="row" id="left">
+            <app-filter-name (onFilterName)="filterName($event)"></app-filter-name>
+        </div>
+        <div class="row" id="center">
+            <app-filter-age (onFilterAge)="filterAge($event)"></app-filter-age>
+        </div>
+        <div class="row" id="right">
+            <app-select-gender (onFilterGender)="filterGender($event)"></app-select-gender>
+        </div>
+    </div>
 </div>

@@ -28,6 +28,7 @@
     "@ng-bootstrap/ng-bootstrap": "^10.0.0",
     "angular-material-expansion-panel": "^0.7.2",
     "bootstrap": "^4.5.0",
+    "cors": "^2.8.5",
     "mdb-angular-ui-kit": "^1.2.0",
     "ng-uikit-pro-standard": "^1.0.0",
     "nodemon": "^2.0.13",
