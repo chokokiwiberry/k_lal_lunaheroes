@@ -1,5 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import {HeroService} from '../../services/hero.service'
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-filter-name',
@@ -8,9 +7,9 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 })
 export class FilterNameComponent implements OnInit {
   @Output() onFilterName: EventEmitter<string> = new EventEmitter(); 
-
+  @Input() nameChecked: boolean = false;
   faSearch = faSearch;
-  constructor(private heroService: HeroService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }

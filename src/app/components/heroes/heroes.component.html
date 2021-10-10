@@ -1,11 +1,11 @@
 <div id ="heroes_component" class="row">
-    <div class="col-4" id="left">
+    <div class="col col-lg-2" id="left">
         <div class = div_filter>
         <app-filter (onFilterName)="filterName($event)" (onFilterAge)="filterAge($event)"
             (onFilterGender)="filterGender($event)"></app-filter>
         </div>
     </div>
-    <div class="col-8" id="right">
+    <div class="col" id="right">
 
         <div class="div_tablehero">
             <div id="add_button" class="d-flex justify-content-end">
@@ -47,9 +47,12 @@
                 <ng-container matColumnDef="actions">
                     <th mat-header-cell *matHeaderCellDef> Azioni </th>
                     <td mat-cell *matCellDef="let element">
-                        <app-hero-item [hero]="element" (onLoadDelete)="deleteHero($event)"
-                            (onLoadEdit)="editHero($event)">
+                        <app-hero-item [hero]="element" 
+                            (onLoadDelete)="deleteHero($event)"
+                            (onLoadEdit)="editHero($event)"
+                            >
                             <!-- passo ad hero-item un elemento singolo -->
+                          
                         </app-hero-item>
                     </td>
                 </ng-container>

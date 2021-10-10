@@ -22,12 +22,15 @@ export class HeroService {
 
 
 
-  tableData!: any; //sono i dati della tabella che servono per fare filtrare e poi mostrare a schermo
+
 
   chosenGender!: string; //salvo il valore scelto e lo passo in questa variabile 
 
-  sharedHero!: Hero;
 
+  //per passare i valori dei check alle componenti figlie 
+  nameChecked!: boolean;
+  ageChecked!: boolean;
+  genderChecked!: boolean;
 
 
 

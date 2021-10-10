@@ -1,6 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
+import { HeroService } from 'src/app/services/hero.service';
 import { LabelType, Options } from '@angular-slider/ngx-slider'
+import { Hero } from 'src/app/Hero';
 
 @Component({
   selector: 'app-filter-age',
@@ -9,12 +10,13 @@ import { LabelType, Options } from '@angular-slider/ngx-slider'
 })
 export class FilterAgeComponent implements OnInit {
   @Output() onFilterAge: EventEmitter<object> = new EventEmitter();  
-  
   minValue: number = 25;
   maxValue: number = 75;
   options: Options = {
     floor: 0,
     ceil: 100,
+    vertical: true,
+    disabled: true,
     translate: (value: number, label: LabelType): string => {  
       switch (label) {  
           case LabelType.Low:  
@@ -26,9 +28,12 @@ export class FilterAgeComponent implements OnInit {
       }  
 }
   };
-  constructor() { }
+  constructor(private heroService : HeroService) { }
 
   ngOnInit(): void {
+  if (this.heroService.ageChecked){
+    this.options.disabled = true;
+  }
   }
   chosenAge(){
 

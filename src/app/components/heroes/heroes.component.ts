@@ -35,7 +35,7 @@ export class HeroesComponent {
     this.heroService.getHeroes().subscribe((response: Hero[]) => {
       this.heroes = response;
       this.dataSource.data = this.heroes;
-      this.heroService.tableData = this.dataSource.data;
+      
     })
   }
 

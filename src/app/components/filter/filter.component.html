@@ -1,35 +1,31 @@
 <div class="filter_container">
-    <mat-accordion>
-        <mat-expansion-panel hideToggle>
-            <mat-expansion-panel-header>
-                <mat-panel-title>
+    <div>
+        <section>
+            <ul>
+                <li>
+                    <mat-checkbox [(ngModel)]="nameChecked" [disabled]="ageChecked || genderChecked">
 
-                    <div>
-                        <div>
-                            <h6>
-                                <div id=filter_title>Filtra <mat-icon>filter_alt</mat-icon>
-                                </div>
-                            </h6>
+                        <div id="name_component">
+                            <app-filter-name (onFilterName)="filterName($event)"></app-filter-name>
                         </div>
-                    </div>
-                </mat-panel-title>
+                    </mat-checkbox>
+                </li>
+                <li>
+                    <mat-checkbox [disabled]="nameChecked || genderChecked" [(ngModel)]="ageChecked" (click)="checkedAge($event)">
 
-            </mat-expansion-panel-header>
+                        <div id="age_component">
+                            <app-filter-age (onFilterAge)="filterAge($event)"(ageChecked)="nameChecked || genderChecked"></app-filter-age>
+                        </div>
+                    </mat-checkbox>
+                </li>
+                <li>
+                    <mat-checkbox [disabled]="nameChecked || ageChecked" [(ngModel)]="genderChecked">
 
-            <div class="filters_container">
-                <div id="name_component">
-                    <app-filter-name (onFilterName)="filterName($event)"></app-filter-name>
-                </div>
-                <div id="age_component">
-                    <app-filter-age (onFilterAge)="filterAge($event)"></app-filter-age>
-                </div>
-                <div id="gender_component">
-                    <app-select-gender (onFilterGender)="filterGender($event)"></app-select-gender>
-                </div>
-            </div>
-        </mat-expansion-panel>
-
-    </mat-accordion>
-
-
-</div>
+                        <div id="gender_component" >
+                            <app-select-gender (onFilterGender)="filterGender($event)"></app-select-gender>
+                        </div>
+                    </mat-checkbox>
+                </li>
+            </ul>
+        </section>
+    </div>
