@@ -3,38 +3,44 @@
         <section>
             <ul>
                 <li>
-                    <mat-checkbox  
-                    [disabled]="ageChecked || genderChecked" 
-                    [checked]="nameChecked"
-                    [(ngModel)]="isNameChecked">
+                    <mat-checkbox 
+                    [(ngModel)]="isNameChecked" 
+                    [disabled]="isAgeChecked || isGenderChecked" 
+                    >
 
                         <div id="name_component">
                             <app-filter-name 
                             (onFilterName)="filterName($event)"
-                            [ageOrGenderClick]="ageChecked || genderChecked"
-                            [clicked_namecheck]="isNameChecked"></app-filter-name>
+                            [ageOrGenderClick]="isAgeChecked|| isGenderChecked"
+                            ></app-filter-name>
                         </div>
                     </mat-checkbox>
                 </li>
                 <li>
                     <mat-checkbox 
-                    [disabled]= "isNameChecked || genderChecked">
+                    [(ngModel)] = "isAgeChecked"
+                    [disabled]= "isNameChecked || isGenderChecked"
+                    >
+                   
 
                         <div id="age_component">
                             <app-filter-age 
                             (onFilterAge)="filterAge($event)"
-                            [nameOrGenderClick]="nameChecked || genderChecked" 
-                            [clicked_agecheck]="ageChecked"></app-filter-age>
+                            [nameOrGenderClick]="isNameChecked || isGenderChecked" 
+                            ></app-filter-age>
                         </div>
                     </mat-checkbox>
                 </li>
                 <li>
-                    <mat-checkbox [disabled]="isNameChecked || ageChecked" >
+                    <mat-checkbox 
+                    [(ngModel)]="isGenderChecked" 
+                    [disabled]="isNameChecked || isAgeChecked"
+                    >
 
                         <div id="gender_component" >
                             <app-select-gender 
                             (onFilterGender)="filterGender($event)"
-                            [genderChecked]="nameChecked || ageChecked"></app-select-gender>
+                            [genderChecked]="isNameChecked|| isAgeChecked"></app-select-gender>
                         </div>
                     </mat-checkbox>
                 </li>
