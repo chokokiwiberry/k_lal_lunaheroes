@@ -11,7 +11,7 @@ import { Hero } from 'src/app/Hero';
 export class FilterAgeComponent implements OnInit, OnChanges {
   @Output() onFilterAge: EventEmitter<object> = new EventEmitter();
   @Input() nameOrGenderClick!: boolean;
-  @Input() clicked_agecheck!: boolean;
+  //@Input() clicked_agecheck!: boolean;
   clicked!: boolean;
   minValue: number = 25;
   maxValue: number = 75;
@@ -34,13 +34,13 @@ export class FilterAgeComponent implements OnInit, OnChanges {
   disabled: any;
   constructor(private heroService: HeroService) { }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('sono changes agee', typeof (changes.nameOrGenderClick.currentValue));
-    console.log(changes['nameOrGenderClick'].currentValue);
+   // console.log('sono changes agee', typeof (changes.nameOrGenderClick.currentValue));
+    //console.log(changes['nameOrGenderClick'].currentValue);
     if (changes['nameOrGenderClick'].currentValue) {
       this.disabled = true;
       this.options = Object.assign({}, this.options, { disabled: this.disabled });
     } else {
-      console.log('sono else agecheck,' ,changes['ageChecked'].currentValue);
+      //console.log('sono else agecheck,' ,changes['ageChecked'].currentValue);
       
         this.disabled = false;
         this.options = Object.assign({}, this.options, { disabled: this.disabled });

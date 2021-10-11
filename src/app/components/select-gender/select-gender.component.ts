@@ -33,10 +33,10 @@ clicked!: boolean;
 
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('sono changes di name',typeof(changes.genderChecked.currentValue));
-    console.log(changes['genderChecked'].currentValue);
+    //console.log('sono changes di name',typeof(changes.genderChecked.currentValue));
+  //  console.log(changes['genderChecked'].currentValue);
     if (changes['genderChecked'].currentValue){
-      console.log('entra');
+    //  console.log('entra');
       
       this.clicked = true;
     } else {

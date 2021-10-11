@@ -1,35 +1,37 @@
-import { Component, EventEmitter, OnInit, Output, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-filter-name',
   templateUrl: './filter-name.component.html',
   styleUrls: ['./filter-name.component.css']
 })
-export class FilterNameComponent implements OnInit, OnChanges {
+export class FilterNameComponent implements OnInit{
   @Output() onFilterName: EventEmitter<string> = new EventEmitter();
-  @Input() ageOrGenderClick!: boolean; //age or gender checked 
-  @Input() clicked_namecheck!: boolean; //check's name 
+  //age or gender checked 
+  //check's name 
   clicked: boolean = false;
   faSearch = faSearch;
+
+  @Input()
+  set ageOrGenderClick(value: any) {
+   if(value) {
+        this.Disable();
+   }
+}
+
+@Input() 
+  set clicked_namecheck(value: any){
+    if (value){
+      this.Enable();
+    }
+}
 
   constructor() { }
 
   ngOnInit(): void {
+    this.Disable();
   }
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['ageOrGenderClick'].currentValue !== 'undefined') {
-      if (changes['ageOrGenderClick'].currentValue) {
-        this.Disable();
-      }
-      else {
-        if (changes['clicked_namecheck'].currentValue !== 'undefined')
-          if (changes['clicked_namecheck'].currentValue)
-            this.Enable();
-      }
-    }
-
-  }
-
+ 
 
   onKey(event: Event) {
     const element = event.target as HTMLInputElement;
