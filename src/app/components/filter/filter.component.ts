@@ -13,22 +13,23 @@ export class FilterComponent implements OnInit {
   @Output() onFilterAge: EventEmitter<object> = new EventEmitter();  
   @Output() onFilterName: EventEmitter<string> = new EventEmitter();  
   @Output() onFilterGender: EventEmitter<string> = new EventEmitter();  
+
   nameChecked = false;
   ageChecked = false;
   genderChecked = false;
-  ageDisable = false;
+ 
   
-  constructor(private heroService: HeroService) { }
+  constructor() { }
+  nameHasChecked(e: Event){
+    console.log('sono eeeveneet filteeeer',e)
+    e.preventDefault();
+    this.nameChecked = true;
+  }
 
   ngOnInit(): void {
   }
-  checkName(){
-    this.nameChecked = true;
-    this.ageDisable = true;
-  }
-  checkedAge(data: any){
-    this.heroService.ageChecked = true;
-  }
+
+
 filterAge(object: any){
   this.onFilterAge.emit(object);
 }

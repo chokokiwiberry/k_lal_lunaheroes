@@ -7,6 +7,6 @@
     <p matPrefix>Nome da cercare</p>
     <mat-icon matPrefix>search</mat-icon>
   </span>
-    <input id ="inputsearch" (keyup.enter)="onKey($event)" #input placeholder="Cerca">
+    <input id ="inputsearch" (keyup.enter)="onKey($event)" #input placeholder="Cerca" [disabled]="clicked" >
   </form> 
 </div>
