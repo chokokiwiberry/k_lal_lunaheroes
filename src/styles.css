@@ -129,3 +129,14 @@ table {
 .mat-form-field-infix{
   width: 140px !important;
 }
+
+#add_btn{
+  background-color: #BDD2B6;
+  color: #444444;
+  border: 1px solid   #444444
+}
+#add_btn:hover{
+  background-color: #444444;
+  color:  #BDD2B6;
+  border: 1px solid #BDD2B6;
+}

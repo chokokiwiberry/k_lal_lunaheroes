@@ -17,13 +17,22 @@ export class FilterComponent implements OnInit {
   nameChecked = false;
   ageChecked = false;
   genderChecked = false;
+
+  isNameChecked = false;
  
   
   constructor() { }
-  nameHasChecked(e: Event){
+ clicked_nameCheck(e: Event){
     console.log('sono eeeveneet filteeeer',e)
     e.preventDefault();
     this.nameChecked = true;
+    console.log('sono loba loba loba ',this.isNameChecked)
+   
+    
+  }
+  ageHasChecked(e:Event){
+    console.log(e);
+    this.ageChecked = true;
   }
 
   ngOnInit(): void {
