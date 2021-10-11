@@ -28,6 +28,7 @@
                             <app-filter-age 
                             (onFilterAge)="filterAge($event)"
                             [nameOrGenderClick]="isNameChecked || isGenderChecked" 
+                            [clicked_agecheck] = "isAgeChecked"
                             ></app-filter-age>
                         </div>
                     </mat-checkbox>
@@ -41,7 +42,9 @@
                         <div id="gender_component" >
                             <app-select-gender 
                             (onFilterGender)="filterGender($event)"
-                            [genderChecked]="isNameChecked|| isAgeChecked"></app-select-gender>
+                            [nameOrAgeClick]="isNameChecked|| isAgeChecked"
+                            [clicked_gendercheck] = "isGenderChecked"
+                            ></app-select-gender>
                         </div>
                     </mat-checkbox>
                 </li>

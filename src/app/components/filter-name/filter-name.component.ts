@@ -7,20 +7,18 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 })
 export class FilterNameComponent implements OnInit{
   @Output() onFilterName: EventEmitter<string> = new EventEmitter();
-  //age or gender checked 
-  //check's name 
   clicked: boolean = false;
   faSearch = faSearch;
 
   @Input()
-  set ageOrGenderClick(value: any) {
+  set ageOrGenderClick(value: any) {//age or gender checked 
    if(value) {
         this.Disable();
    }
 }
 
 @Input() 
-  set clicked_namecheck(value: any){
+  set clicked_namecheck(value: any){  //check's name 
     if (value){
       this.Enable();
     }
@@ -39,10 +37,10 @@ export class FilterNameComponent implements OnInit{
     this.onFilterName.emit(value);
 
   }
-  Disable() {
+  Disable() { //disable input
     this.clicked = true;
   }
-  Enable() {
+  Enable() { //enable input
     this.clicked = false;
   }
 

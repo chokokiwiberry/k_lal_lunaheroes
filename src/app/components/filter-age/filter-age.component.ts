@@ -1,17 +1,29 @@
-import { Component, EventEmitter, OnInit, Output, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { HeroService } from 'src/app/services/hero.service';
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 import { LabelType, Options } from '@angular-slider/ngx-slider'
-import { Hero } from 'src/app/Hero';
+
 
 @Component({
   selector: 'app-filter-age',
   templateUrl: './filter-age.component.html',
   styleUrls: ['./filter-age.component.css']
 })
-export class FilterAgeComponent implements OnInit, OnChanges {
+export class FilterAgeComponent implements OnInit {
   @Output() onFilterAge: EventEmitter<object> = new EventEmitter();
-  @Input() nameOrGenderClick!: boolean;
-  //@Input() clicked_agecheck!: boolean;
+  
+
+  @Input()
+  set nameOrGenderClick(value: any) {//name or gender checked 
+   if(value) {
+        this.Disable();
+   }
+}
+@Input()
+set clicked_agecheck(value: any) {//name or gender checked 
+ if(value) {
+      this.Enable();
+ }
+}
+
   clicked!: boolean;
   minValue: number = 25;
   maxValue: number = 75;
@@ -32,23 +44,15 @@ export class FilterAgeComponent implements OnInit, OnChanges {
     }
   };
   disabled: any;
-  constructor(private heroService: HeroService) { }
-  ngOnChanges(changes: SimpleChanges): void {
-   // console.log('sono changes agee', typeof (changes.nameOrGenderClick.currentValue));
-    //console.log(changes['nameOrGenderClick'].currentValue);
-    if (changes['nameOrGenderClick'].currentValue) {
-      this.disabled = true;
-      this.options = Object.assign({}, this.options, { disabled: this.disabled });
-    } else {
-      //console.log('sono else agecheck,' ,changes['ageChecked'].currentValue);
-      
-        this.disabled = false;
-        this.options = Object.assign({}, this.options, { disabled: this.disabled });
-    
-      
-      
-    }
-   
+  constructor() { }
+
+  Disable(){
+    this.disabled = true;
+    this.options = Object.assign({}, this.options, { disabled: this.disabled });
+  }
+  Enable(){
+    this.disabled = false;
+    this.options = Object.assign({}, this.options, { disabled: this.disabled });
   }
   ngOnInit(): void {
     this.options.disabled = true;
