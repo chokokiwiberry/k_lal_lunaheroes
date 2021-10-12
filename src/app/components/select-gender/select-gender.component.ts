@@ -14,6 +14,7 @@ export class SelectGenderComponent implements OnInit {
   form = new FormGroup({
     gender: new FormControl(),
   });
+  
   //idea: voglio passare il valore dal child, che è selectGender al padre che è heroes
   @Output() onFilterGender: EventEmitter<string> = new EventEmitter();
   @Input()

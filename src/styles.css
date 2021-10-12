@@ -2,19 +2,20 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css"; /**/
 
 body{
-  background-color:#E9ECEF;
+  background-color:#ccddc6;;
 }
 p{
-  font-size: small;
+  font-size: 16px;
 }
 label{
-  font-size: small;
+  font-size: 16px;
 }
   /* Structure */
 table {
     width: 100%;
     height: 100%;
     table-layout: fixed;
+  
   }
   ul {
     list-style-type: none;
@@ -46,12 +47,12 @@ table {
 
 /*age slider bar */
 .age_wrapper .ngx-slider .ngx-slider-pointer{
-  background-color: #495057;
+  background-color: #a6b8a0;
  
 }
 
 .age_wrapper .ngx-slider .ngx-slider-selection{
-  background-color: #495057
+  background-color: #BDD2B6;
 }
 
 
@@ -68,7 +69,15 @@ table {
   height:30px;
   justify-content: center;
   align-items: center;
+  background-color: #BDD2B6;
+  color: #444444;
+  border: 1px solid   #444444
  
+}
+.btn:hover{
+  background-color: #444444;
+  color:  #BDD2B6;
+  border: 1px solid #BDD2B6;
 }
 .btn div{
   justify-content: center;
@@ -142,23 +151,4 @@ table {
   margin-top: 10px;
 }
 
-#add_btn{
-  background-color: #BDD2B6;
-  color: #444444;
-  border: 1px solid   #444444
-}
-#add_btn:hover{
-  background-color: #444444;
-  color:  #BDD2B6;
-  border: 1px solid #BDD2B6;
-}
-#btn_editform{
-  background-color: #BDD2B6;
-  color: #444444;
-  border: 1px solid   #444444
-}
-#btn_editform:hover{
-  background-color: #444444;
-  color:  #BDD2B6;
-  border: 1px solid #BDD2B6;
-}
+

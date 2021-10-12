@@ -37,9 +37,9 @@ export class FilterAgeComponent implements OnInit {
     translate: (value: number, label: LabelType): string => {
       switch (label) {
         case LabelType.Low:
-          return "<b>Età min:</b> " + value;
+          return "<p>Età min:</p> " + value;
         case LabelType.High:
-          return "<b>Età max:</b> " + value;
+          return "<p>Età max:</p> " + value;
         default:
           return "" + value;
       }
