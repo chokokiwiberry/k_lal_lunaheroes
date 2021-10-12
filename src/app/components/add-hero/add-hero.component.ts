@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Hero } from 'src/app/Hero';
 
 @Component({
@@ -18,10 +19,14 @@ export class AddHeroComponent implements OnInit {
     notes!: string;
 
     heroes!: any;
+    selectGender: any;
 
-  constructor() { }
+    receivedEnable!: any;
+
+  constructor(@Inject (MAT_DIALOG_DATA) public enabledSelect: any) { }
 
   ngOnInit(): void {
+   this.receivedEnable = this.enabledSelect;
   }
 
   chosenGender(string: any): string{
@@ -30,7 +35,7 @@ export class AddHeroComponent implements OnInit {
   }
   //quando l'utente clicca salva, c'è la funzione addHero
   AddHero(){
-    console.log('sono add hero in add component hero')
+    this.receivedEnable = this.enabledSelect;
     if (!this.name){
       alert('Il nome è obbligatorio');
       return;

@@ -6,11 +6,11 @@ import {FormControl, FormGroup} from '@angular/forms';
 //service 
 import {HeroService} from '../../services/hero.service'
 @Component({
-  selector: 'app-select-gender',
-  templateUrl: './select-gender.component.html',
-  styleUrls: ['./select-gender.component.css']
+  selector: 'app-filter-gender',
+  templateUrl: './filter-gender.component.html',
+  styleUrls: ['./filter-gender.component.css']
 })
-export class SelectGenderComponent implements OnInit{
+export class FilterGenderComponent implements OnInit{
 
   form = new FormGroup({
     gender : new FormControl(),
@@ -18,23 +18,19 @@ export class SelectGenderComponent implements OnInit{
  //idea: voglio passare il valore dal child, che è selectGender al padre che è heroes
  @Output() onFilterGender: EventEmitter<string> = new EventEmitter();
  @Input () 
- set clicked_edit(value:any){
+ set clicked_gendercheck(value:any){
   if (value){
     this.Enable();
-  } else{
-    this.Disable();
   }
  }
  @Input()
- set clicked_addbtn(value: any){
-   if (value){
-     this.Enable()
-   } else{
-     this.Disable()
-   }
- }
-
-clicked!: boolean;
+ set nameOrAgeClick(value: any) {//name or age checked 
+  if(value) {
+       this.Disable();
+  }
+}
+clicked_btn!: boolean;
+clicked_check!: boolean;
   //schema per la scelta del genere 
   genders =[
     {gender : ''},
@@ -47,10 +43,10 @@ clicked!: boolean;
   
   }
   Enable(){
-    this.clicked = false;
+    this.clicked_check = false;
   }
 Disable(){
-  this.clicked = true;
+  this.clicked_check = true;
 }
 
 

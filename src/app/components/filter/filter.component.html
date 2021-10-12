@@ -6,6 +6,7 @@
                     <mat-checkbox 
                     [(ngModel)]="isNameChecked" 
                     [disabled]="isAgeChecked || isGenderChecked" 
+                    (click)="$event.stopPropagation()"
                     >
 
                         <div id="name_component">
@@ -21,6 +22,7 @@
                     <mat-checkbox 
                     [(ngModel)] = "isAgeChecked"
                     [disabled]= "isNameChecked || isGenderChecked"
+                    (click)="$event.stopPropagation()"
                     >
                    
 
@@ -40,11 +42,11 @@
                     >
 
                         <div id="gender_component" >
-                            <app-select-gender 
+                            <app-filter-gender 
                             (onFilterGender)="filterGender($event)"
                             [nameOrAgeClick]="isNameChecked|| isAgeChecked"
                             [clicked_gendercheck] = "isGenderChecked"
-                            ></app-select-gender>
+                            ></app-filter-gender>
                         </div>
                     </mat-checkbox>
                 </li>

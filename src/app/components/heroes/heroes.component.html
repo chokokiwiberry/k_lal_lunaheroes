@@ -9,7 +9,9 @@
 
         <div class="div_tablehero">
             <div id="add_button" class="d-flex justify-content-end">
-                <app-modal (onLoadAdd)="addHero($event)"></app-modal>
+                <app-modal 
+                (onLoadAdd)="addHero($event)"
+                ></app-modal>
             </div>
             <table mat-table [dataSource]="dataSource">
 

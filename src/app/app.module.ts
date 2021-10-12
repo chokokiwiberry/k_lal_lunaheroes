@@ -33,6 +33,7 @@ import { ShowHeroComponent } from './components/show-hero/show-hero.component';
 import { DeleteHeroComponent } from './components/delete-hero/delete-hero.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { FilterComponent } from './components/filter/filter.component';
+import { FilterGenderComponent } from './components/filter-gender/filter-gender.component';
 
 
 
@@ -57,6 +58,7 @@ const appRoutes : Routes =[
     DeleteHeroComponent,
     ModalComponent,
     FilterComponent,
+    FilterGenderComponent,
 
   ],
   imports: [
