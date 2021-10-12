@@ -21,6 +21,8 @@ export class FilterNameComponent implements OnInit{
   set clicked_namecheck(value: any){  //check's name 
     if (value){
       this.Enable();
+    } else{
+      this.Disable();
     }
 }
 

@@ -9,7 +9,7 @@ import { LabelType, Options } from '@angular-slider/ngx-slider'
 })
 export class FilterAgeComponent implements OnInit {
   @Output() onFilterAge: EventEmitter<object> = new EventEmitter();
-  
+ 
 
   @Input()
   set nameOrGenderClick(value: any) {//name or gender checked 
@@ -21,6 +21,8 @@ export class FilterAgeComponent implements OnInit {
 set clicked_agecheck(value: any) {//name or gender checked 
  if(value) {
       this.Enable();
+ } else{
+   this.Disable();
  }
 }
 
@@ -59,7 +61,8 @@ set clicked_agecheck(value: any) {//name or gender checked
   }
   chosenAge() {
 
-    this.onFilterAge.emit({ min: this.minValue, max: this.maxValue });
+    this.onFilterAge.emit({ min: this.minValue, max: this.maxValue});
+ 
 
   }
 

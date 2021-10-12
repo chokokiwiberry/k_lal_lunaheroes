@@ -21,17 +21,34 @@ export class FilterComponent implements OnInit {
   isGenderChecked = false;
   
   constructor() { }
- clicked_nameCheck(e: Event){
-    console.log('sono eeeveneet filteeeer',e)
-    e.preventDefault();
+onClick(e: Event){
 
-    console.log('sono loba loba loba ',this.isNameChecked)
-   
-    
-  }
-  ageHasChecked(e:Event){
-    console.log(e);
+  e.stopPropagation();
   
+}
+  childClick(e:Event){
+    let done: boolean;
+    done = false;
+   console.log('checkname', this.isNameChecked);
+   if ((this.isNameChecked) && done){
+
+     e.preventDefault();
+   } else{
+     if (!this.isNameChecked)
+     done = true;
+     console.log('non sono cliccattooooo')
+   }
+
+  }
+  childClick1(e: Event){
+    let done: boolean = false;
+
+    if ((this.isAgeChecked) && done){
+      e.preventDefault();
+     }else{
+      if (!this.isAgeChecked)
+      done = true;
+     }
   }
 
   ngOnInit(): void {
@@ -40,6 +57,8 @@ export class FilterComponent implements OnInit {
 
 filterAge(object: any){
   this.onFilterAge.emit(object);
+ 
+  
 }
 filterName(string: any){
   this.onFilterName.emit(string);
