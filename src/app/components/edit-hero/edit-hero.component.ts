@@ -1,9 +1,7 @@
 
 import { Component, OnInit, Inject, Output, EventEmitter } from '@angular/core';
-import { Form, FormControl, FormControlName, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Hero } from 'src/app/Hero';
-import { HeroService } from 'src/app/services/hero.service';
 @Component({
   selector: 'app-edit-hero',
   templateUrl: './edit-hero.component.html',
@@ -11,16 +9,16 @@ import { HeroService } from 'src/app/services/hero.service';
 })
 export class EditHeroComponent implements OnInit {
   @Output() onEditHero: EventEmitter<Hero> = new EventEmitter();
-name!: string;
-age!: number;
-gender!: string; 
-signs!: string; 
-notes!: string; 
-clicked: boolean = false;
+  name!: string;
+  age!: number;
+  gender!: string;
+  signs!: string;
+  notes!: string;
+  clicked: boolean = false;
 
 
 
-  constructor(@Inject (MAT_DIALOG_DATA) public hero: Hero) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public hero: Hero) { }
 
   ngOnInit(): void {
     this.clicked = true;
@@ -29,21 +27,21 @@ clicked: boolean = false;
     this.gender = this.hero.gender;
     this.signs = this.hero.signs;
     this.notes = this.hero.notes;
-    
+
   }
 
 
-  checkToEnable(){
-    if (this.clicked){
+  checkToEnable() {
+    if (this.clicked) {
       this.clicked = false;
-    } 
+    }
     else this.clicked = true;
   }
-  chosenGender(string: any):string{
+  chosenGender(string: any): string {
     return this.gender = string;
   }
 
-  EditHero(){
+  EditHero() {
     const updatedHero = {
       id: this.hero.id,
       name: this.name,

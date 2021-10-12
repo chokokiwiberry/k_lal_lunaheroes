@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../../Hero'
 import { HeroService } from '../../services/hero.service'
-
 import { MatTableDataSource } from '@angular/material/table';
 
 
@@ -19,16 +18,13 @@ export class HeroesComponent {
   displayedColumns: string[] = ['name', 'age', 'gender', 'signs', 'notes', 'actions'];
 
 
-  //
-  text: string = 'Aggiungi eroe'
+
 
   constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
     this.getData();
   }
-
-  //per ricevere il dato tramite select-gender
 
   getData(): void {
     //get request
@@ -94,7 +90,7 @@ export class HeroesComponent {
     this.getData();
   }
   visualizeHero(hero: Hero) {
-    //
+    // non serve chiamare nessuna funzione service perché mostro solo dati a schermo
   }
   deleteHero(heroD: Hero) {
     //delete request

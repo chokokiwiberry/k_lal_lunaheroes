@@ -1,61 +1,56 @@
-import { Component, OnInit,  Output, EventEmitter, Input} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
-
-
-//service 
-import {HeroService} from '../../services/hero.service'
 @Component({
   selector: 'app-filter-gender',
   templateUrl: './filter-gender.component.html',
   styleUrls: ['./filter-gender.component.css']
 })
-export class FilterGenderComponent implements OnInit{
+export class FilterGenderComponent implements OnInit {
 
   form = new FormGroup({
-    gender : new FormControl(),
+    gender: new FormControl(),
   });
- //idea: voglio passare il valore dal child, che è selectGender al padre che è heroes
- @Output() onFilterGender: EventEmitter<string> = new EventEmitter();
- @Input () 
- set clicked_gendercheck(value:any){
-  if (value){
-    this.Enable();
+
+  @Output() onFilterGender: EventEmitter<string> = new EventEmitter();
+  @Input()
+  set clicked_gendercheck(value: any) {
+    if (value) {
+      this.Enable();
+    } else{
+      this.Disable();
+    }
   }
- }
- @Input()
- set nameOrAgeClick(value: any) {//name or age checked 
-  if(value) {
-       this.Disable();
+  @Input()
+  set nameOrAgeClick(value: any) {//name or age checked 
+    if (value) {
+      this.Disable();
+    }
   }
-}
-clicked_btn!: boolean;
-clicked_check!: boolean;
+  clicked!: boolean;
   //schema per la scelta del genere 
-  genders =[
-    {gender : ''},
-    {gender: 'M'},
-    {gender: 'F'}
+  genders = [
+    { gender: '' },
+    { gender: 'M' },
+    { gender: 'F' }
   ]
   constructor() { }
 
   ngOnInit(): void {
-  
+
   }
-  Enable(){
-    this.clicked_check = false;
+  Enable() {
+    this.clicked = false;
   }
-Disable(){
-  this.clicked_check = true;
-}
+  Disable() {
+    this.clicked = true;
+  }
 
-
-
-filterGender(event: Event){
-  const element = event.target as HTMLInputElement;
-  const value = element.innerText;
-  this.onFilterGender.emit(value);
-}
+  filterGender(event: Event) {
+    const element = event.target as HTMLInputElement;
+    const value = element.innerText;
+    this.onFilterGender.emit(value);
+  }
 
 
 }

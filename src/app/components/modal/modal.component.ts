@@ -5,7 +5,7 @@ import { Hero } from 'src/app/Hero';
 import { AddHeroComponent } from '../add-hero/add-hero.component';
 
 import { HeroService } from 'src/app/services/hero.service';
-import { DeleteHeroComponent } from '../delete-hero/delete-hero.component';
+
 
 @Component({
   selector: 'app-modal',
@@ -16,12 +16,10 @@ export class ModalComponent implements OnInit {
  
   @Output() onLoadAdd: EventEmitter<Hero> = new EventEmitter();
 
-  @Output() onLoadDelete: EventEmitter<Hero> = new EventEmitter();
-
   enableselect!: boolean;
   
  
-  constructor(public dialog: MatDialog, private heroService: HeroService) { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -36,46 +34,11 @@ export class ModalComponent implements OnInit {
    const sub = dialogRef.componentInstance.onAddHero.subscribe((hero) => {
       console.log('sono loadAdd subscribe emit, hero',hero);
  
-      this.onLoadAdd.emit(hero);
-      //this.onLoadAdd.emit();
-      
+      this.onLoadAdd.emit(hero);     
     
     });
-    
-    
-    /*dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    }); */
     return dialogRef.afterClosed();
 
   }
- 
-  
 
-
-
-
-
-
-  loadDelete(): Observable<any> {
-    const dialogRef = this.dialog.open(DeleteHeroComponent, {
-      width: '450px',
-    })
- 
-   const sub = dialogRef.componentInstance.onDeleteHero.subscribe((hero) => {
-      console.log('sono loadAdd subscribe emit, hero',hero);
- 
-      this.onLoadDelete.emit(hero);
-   
-      
-    
-    });
-    
-    
-    /*dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    }); */
-    return dialogRef.afterClosed();
-
-  }
 }

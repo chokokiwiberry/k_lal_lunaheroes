@@ -3,7 +3,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 //Hero è l'interfaccia della struttura dati Hero
 import { Hero } from '../../Hero'
 
-import { faTrash, faEdit, faEye } from '@fortawesome/free-solid-svg-icons';
+
 
 
 import { MatDialog } from '@angular/material/dialog';
@@ -24,12 +24,6 @@ export class HeroItemComponent implements OnInit {
   @Input()
   hero!: Hero;
 
-  //icone
-  faTrash = faTrash;
-  faEdit = faEdit;
-  faEye = faEye;
-
-
   @Output() onLoadDelete: EventEmitter<Hero> = new EventEmitter();
   @Output() onLoadEdit: EventEmitter<Hero> = new EventEmitter();
 
@@ -43,8 +37,6 @@ export class HeroItemComponent implements OnInit {
 
 
   onEditHero(hero: Hero) {
-    console.log('sono modifica');
-    console.log(this.hero);
     const dialogRef = this.dialog.open(EditHeroComponent, {
       width: '450px',
       data: hero
@@ -58,9 +50,6 @@ export class HeroItemComponent implements OnInit {
 
   
   onVisualizeHero(hero: Hero) {
-    console.log('sono visualizza');
-    console.log(this.hero);
-  
     const dialogRef = this.dialog.open(ShowHeroComponent, {
       width: '450px',
       data: hero
@@ -73,9 +62,6 @@ export class HeroItemComponent implements OnInit {
 
 
   onDeleteHero(hero: Hero) {
-    console.log('sono cancella');
-    console.log(this.hero);
-
     const dialogRef = this.dialog.open(DeleteHeroComponent, {
       width: '450px',
       data: hero

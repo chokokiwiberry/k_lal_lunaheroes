@@ -57,8 +57,6 @@ export class AddHeroComponent implements OnInit {
     this.onAddHero.emit(newHero);
 
     this.name = ''
-    
-
  
     }
  

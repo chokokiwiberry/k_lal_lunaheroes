@@ -19,21 +19,7 @@ const httpOptions = {
 
 export class HeroService {
 
-
-
-
-
-
   chosenGender!: string; //salvo il valore scelto e lo passo in questa variabile 
-
-
-  //per passare i valori dei check alle componenti figlie 
-  nameChecked!: boolean;
-  ageChecked!: boolean;
-  genderChecked!: boolean;
-
-
-
 
   constructor(public dialog: MatDialog, private http: HttpClient) { }
 
@@ -44,16 +30,11 @@ export class HeroService {
 
   deleteHero(hero: Hero): Observable<Hero> {
     const url = `/api/heroes/${hero.id}`;
-    console.log('sono url di', url)
     return this.http.delete<Hero>(url, httpOptions);
   }
 
 
   addHero(newHero: Hero): Observable<Hero> {
-    console.log(newHero);
-    HEROES.push(newHero);
-    console.log(HEROES);
-    console.log('sono di addhero service post', this.http.post<Hero>('/api/heroes', newHero, httpOptions))
     return this.http.post<Hero>('/api/heroes', newHero, httpOptions);
   }
 

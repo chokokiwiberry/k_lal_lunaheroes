@@ -6,7 +6,6 @@
                     <mat-checkbox 
                     [(ngModel)]="isNameChecked" 
                     [disabled]="isAgeChecked || isGenderChecked" 
-                    (click)="childClick($event)"
                     >
 
                         <div id="name_component">
@@ -14,7 +13,7 @@
                             (onFilterName)="filterName($event)"
                             [ageOrGenderClick]="isAgeChecked|| isGenderChecked"
                             [clicked_namecheck]="isNameChecked"
-                            ></app-filter-name>
+                            (click)="onClick($event)"></app-filter-name>
                         </div>
                     </mat-checkbox>
                 </li>
@@ -22,7 +21,6 @@
                     <mat-checkbox 
                     [(ngModel)] = "isAgeChecked"
                     [disabled]= "isNameChecked || isGenderChecked"
-                    (click)="childClick($event)"
                     >
                    
 
@@ -31,7 +29,7 @@
                             (onFilterAge)="filterAge($event)"
                             [nameOrGenderClick]="isNameChecked || isGenderChecked" 
                             [clicked_agecheck] = "isAgeChecked"
-                            (click)="childClick($event)"></app-filter-age>
+                            (click)="onClick($event)"></app-filter-age>
                         </div>
                     </mat-checkbox>
                 </li>
@@ -39,7 +37,6 @@
                     <mat-checkbox 
                     [(ngModel)]="isGenderChecked" 
                     [disabled]="isNameChecked || isAgeChecked"
-                    (click)="childClick($event)"
                     >
 
                         <div id="gender_component" >
@@ -47,7 +44,7 @@
                             (onFilterGender)="filterGender($event)"
                             [nameOrAgeClick]="isNameChecked|| isAgeChecked"
                             [clicked_gendercheck] = "isGenderChecked"
-                            ></app-filter-gender>
+                            (click)="onClick($event)"></app-filter-gender>
                         </div>
                     </mat-checkbox>
                 </li>
