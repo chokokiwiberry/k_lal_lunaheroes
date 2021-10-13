@@ -30,7 +30,7 @@ export class EditHeroComponent implements OnInit {
     this.gender = this.hero.gender;
     this.signs = this.hero.signs;
     this.notes = this.hero.notes;
-
+    this.dataHero = this.hero;
   }
 
 

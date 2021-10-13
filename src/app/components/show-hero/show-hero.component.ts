@@ -15,7 +15,7 @@ export class ShowHeroComponent implements OnInit {
   notes!: string;
   
   clicked: boolean = false;
-
+  dataHero!: Hero;
   constructor(@Inject (MAT_DIALOG_DATA) public hero: Hero, ) { }
 
   ngOnInit(): void {
@@ -25,6 +25,7 @@ export class ShowHeroComponent implements OnInit {
     this.gender = this.hero.gender;
     this.signs = this.hero.signs;
     this.notes = this.hero.notes;
+    this.dataHero = this.hero;
   }
 
 }
