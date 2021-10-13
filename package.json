@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "client": "ng serve --proxy-config proxy.config.json",
-    "server": "nodemon ./api/server.js",
+    "server": "node ./api/server.js",
     "start": "npm-run-all -p client server"
   },
   "private": true,
