@@ -1,6 +1,6 @@
 <div class = "add_hero">
     <div>
-        <h6 [(ngModel)]="name">Stai modificando: {{hero.name}}</h6>
+        <h6 [(ngModel)]="name" name="name">Stai modificando: {{hero.name}}</h6>
     </div>
     <div class ="float-right">
       <button id="btn_editform" class = "btn" (click)="checkToEnable()">Modifica</button>
@@ -9,24 +9,24 @@
     <label for="name">Name*</label>
     <input [disabled]="clicked" type="text" class="form-control" id="name"
            name="name" [(ngModel)]="name" 
-           >
+           [ngModelOptions]="{standalone: true}">
   </div>
   
   <div class="form-group">
     <label for="age">Age*</label>
     <input [disabled]="clicked" type="text"  class="form-control" id="age"
-            name="age"  [(ngModel)]="age">
+            name="age"  [(ngModel)]="age" [ngModelOptions]="{standalone: true}">
   </div>
   <div>
-      <app-select-gender (onFilterGender)="chosenGender($event)"[clicked_edit]="clicked"></app-select-gender>
+      <app-select-gender (onFilterGender)="chosenGender($event)"[dataHero]=dataHero [clicked_edit]="clicked"></app-select-gender>
   </div>
   <div class="form-group">
     <label for="signs" >Signs</label>
-   <textarea [disabled]="clicked" [(ngModel)]="signs"></textarea>
+   <textarea [disabled]="clicked" [(ngModel)]="signs" name= "signs" [ngModelOptions]="{standalone: true}"></textarea>
   </div>
   <div class="form-group">
       <label for="notes">Notes</label>
-      <textarea [disabled]="clicked" [(ngModel)]="notes" ></textarea>
+      <textarea [disabled]="clicked" [(ngModel)]="notes" name ="notes" [ngModelOptions]="{standalone: true}" ></textarea>
   </div>
 
   <mat-dialog-actions align="end">

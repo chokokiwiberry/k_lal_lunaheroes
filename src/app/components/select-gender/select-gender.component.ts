@@ -15,15 +15,20 @@ export class SelectGenderComponent implements OnInit {
     gender: new FormControl(),
   });
   
+  
   //idea: voglio passare il valore dal child, che è selectGender al padre che è heroes
   @Output() onFilterGender: EventEmitter<string> = new EventEmitter();
   @Input()
   set clicked_edit(value: any) {
+
+    console.log(value)
     if (value) {
       this.Disable();
+      
     } else {
       this.Enable();
-    }
+    };
+   console.log(this.selectedGender)
   }
   @Input()
   set clicked_addbtn(value: any) {
@@ -33,7 +38,18 @@ export class SelectGenderComponent implements OnInit {
       this.Disable()
     }
   }
+  @Input('dataHero')
+    set data(data: any) {
+       this.setGender(data.gender);
+      
+    }
 
+  setGender(genderData: string){
+   this.selectedGender = genderData;
+  }
+
+
+ 
   clicked!: boolean;
   //schema per la scelta del genere 
   genders = [
@@ -41,17 +57,22 @@ export class SelectGenderComponent implements OnInit {
     { gender: 'M' },
     { gender: 'F' }
   ]
+
+
+  selectedGender!: string;
   constructor() { }
 
   ngOnInit(): void {
-
+    this.selectedGender;
   }
   Enable() {
     this.clicked = false;
+    
   }
   Disable() {
     this.clicked = true;
   }
+  
 
 
 
@@ -60,6 +81,7 @@ export class SelectGenderComponent implements OnInit {
     const value = element.innerText;
     this.onFilterGender.emit(value);
   }
+
 
 
 }

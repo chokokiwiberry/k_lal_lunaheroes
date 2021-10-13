@@ -29,7 +29,6 @@ export class HeroesComponent {
     if (this.heroService.loggedIn === true){
       this.heroService.loggedIn = false;
       this.router.navigateByUrl('/');
-
     }
   }
 

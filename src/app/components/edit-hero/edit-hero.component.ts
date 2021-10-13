@@ -2,6 +2,7 @@
 import { Component, OnInit, Inject, Output, EventEmitter } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Hero } from 'src/app/Hero';
+import { HeroesComponent } from '../heroes/heroes.component';
 @Component({
   selector: 'app-edit-hero',
   templateUrl: './edit-hero.component.html',
@@ -16,6 +17,8 @@ export class EditHeroComponent implements OnInit {
   notes!: string;
   clicked: boolean = false;
 
+  dataHero!: Hero;
+
 
 
   constructor(@Inject(MAT_DIALOG_DATA) public hero: Hero) { }
@@ -24,7 +27,7 @@ export class EditHeroComponent implements OnInit {
     this.clicked = true;
     this.name = this.hero.name;
     this.age = this.hero.age;
-    this.gender = this.hero.gender;
+    this.gender = this.dataHero.gender;
     this.signs = this.hero.signs;
     this.notes = this.hero.notes;
 
@@ -32,8 +35,10 @@ export class EditHeroComponent implements OnInit {
 
 
   checkToEnable() {
+    this.dataHero = this.hero;
     if (this.clicked) {
       this.clicked = false;
+      
     }
     else this.clicked = true;
   }

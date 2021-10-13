@@ -151,3 +151,18 @@ table {
 }
 
 
+#div_formlogin{
+  border: 1px solid black;  
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: rgba(76, 175, 80, 0.2);
+}
+#div_loginIcon{
+    display: flex;
+    justify-content: center; 
+    margin-top:30px; 
+
+}

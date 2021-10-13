@@ -1,11 +1,12 @@
 <div class = "gender_wrapper">
   <label for="gender_select">Sesso</label>
 <form [formGroup]="form">
-    <select [disabled]="clicked">
-     
+    <select [disabled]="clicked" >
+        
       <option *ngFor="let gender of genders" 
       [ngValue]="gender.gender" 
       (click) = "filterGender($event)" 
+      [selected]="gender.gender===selectedGender"
     >
         {{ gender.gender }}
       </option>
@@ -13,4 +14,7 @@
     </select>
   </form>
 </div>
+
+
+
 
