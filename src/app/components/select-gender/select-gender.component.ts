@@ -18,10 +18,9 @@ export class SelectGenderComponent implements OnInit {
   
   //idea: voglio passare il valore dal child, che è selectGender al padre che è heroes
   @Output() onFilterGender: EventEmitter<string> = new EventEmitter();
+  @Output() onShowingGender: EventEmitter<string> = new EventEmitter();
   @Input()
   set clicked_edit(value: any) {
-
-    console.log(value)
     if (value) {
       this.Disable();
       
@@ -40,14 +39,8 @@ export class SelectGenderComponent implements OnInit {
   }
   @Input('dataHero')
     set data(data: any) {
-       this.setGender(data.gender);
-      
+       this.selectedGender = data.gender;
     }
-
-  setGender(genderData: string){
-   this.selectedGender = genderData;
-  }
-
 
  
   clicked!: boolean;
@@ -60,10 +53,11 @@ export class SelectGenderComponent implements OnInit {
 
 
   selectedGender!: string;
+
   constructor() { }
 
   ngOnInit(): void {
-    this.selectedGender;
+  
   }
   Enable() {
     this.clicked = false;

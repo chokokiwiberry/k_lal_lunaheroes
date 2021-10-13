@@ -27,7 +27,7 @@ export class EditHeroComponent implements OnInit {
     this.clicked = true;
     this.name = this.hero.name;
     this.age = this.hero.age;
-    this.gender = this.dataHero.gender;
+    this.gender = this.hero.gender;
     this.signs = this.hero.signs;
     this.notes = this.hero.notes;
 
@@ -37,8 +37,7 @@ export class EditHeroComponent implements OnInit {
   checkToEnable() {
     this.dataHero = this.hero;
     if (this.clicked) {
-      this.clicked = false;
-      
+      this.clicked = false; 
     }
     else this.clicked = true;
   }
@@ -56,6 +55,7 @@ export class EditHeroComponent implements OnInit {
       notes: this.notes
 
     }
+    
     this.onEditHero.emit(updatedHero);
 
   }
