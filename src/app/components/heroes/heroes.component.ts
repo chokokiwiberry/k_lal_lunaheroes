@@ -26,8 +26,11 @@ export class HeroesComponent {
     this.getData();
   }
   Logout(): void{
+    console.log('sono loggout', this.heroService.loggedIn)
     if (this.heroService.loggedIn === true){
       this.heroService.loggedIn = false;
+      this.router.navigateByUrl('/');
+    } else{
       this.router.navigateByUrl('/');
     }
   }
