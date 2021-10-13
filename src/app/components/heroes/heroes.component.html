@@ -1,4 +1,6 @@
+<button id="logout" class ="btn" style="float: right; margin-right:18px;"(click)="Logout()">Logout</button>
 <div id ="heroes_component" class="row">
+
     <div class="col col-lg-2" id="left">
         <div class = div_filter>
         <app-filter (onFilterName)="filterName($event)" (onFilterAge)="filterAge($event)"

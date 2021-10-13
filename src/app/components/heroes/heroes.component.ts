@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Hero } from '../../Hero'
 import { HeroService } from '../../services/hero.service'
 import { MatTableDataSource } from '@angular/material/table';
-
+import {Router} from '@angular/router'
 
 //import { HEROES } from 'src/app/mock-heroes';
 
@@ -20,10 +20,17 @@ export class HeroesComponent {
 
 
 
-  constructor(private heroService: HeroService) { }
+  constructor(private heroService: HeroService, private router: Router) { }
 
   ngOnInit(): void {
     this.getData();
+  }
+  Logout(): void{
+    if (this.heroService.loggedIn === true){
+      this.heroService.loggedIn = false;
+      this.router.navigateByUrl('/');
+
+    }
   }
 
   getData(): void {

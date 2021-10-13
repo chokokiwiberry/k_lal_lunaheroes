@@ -26,6 +26,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatToolbarModule} from '@angular/material/toolbar';
+
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditHeroComponent } from './components/edit-hero/edit-hero.component';
@@ -79,8 +81,9 @@ const appRoutes : Routes =[
     MatSelectModule,
     MatExpansionModule,
     MatIconModule,
-    MatCheckboxModule
-    
+    MatCheckboxModule,
+    MatToolbarModule,
+ 
    
   ],
   

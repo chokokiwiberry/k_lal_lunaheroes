@@ -20,7 +20,7 @@ const httpOptions = {
 export class HeroService {
 
   chosenGender!: string; //salvo il valore scelto e lo passo in questa variabile 
-
+  loggedIn: boolean = false; //variabile che indica se sei logged in o no
   constructor(public dialog: MatDialog, private http: HttpClient) { }
 
 

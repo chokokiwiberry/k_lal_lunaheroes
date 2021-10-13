@@ -1,25 +1,44 @@
 <div class="div-login">
+    <div id ="div_formlogin" style="border: 1px solid black;  position: absolute;
+left: 50%;
+top: 35%;
+-webkit-transform: translate(-50%, -50%);
+transform: translate(-50%, -50%);
+background-color: rgba(76, 175, 80, 0.2);" >
+        <form class="form-login" style>
+            <div style="display: flex;
+    justify-content: center; margin-top:10px; margin-bottom:10px;">
+                <div style="border: 1px solid black">
+                    <mat-icon style=" float:left"> account_circle</mat-icon>
+                    <h6 style=" margin-right: 10px; float:right"> Login </h6>
 
-    <form class = "form-login">
-        <div class="row justify-content-center">
-            <div class="col-auto">
-                <label for="username" class ="label_item">Username</label>
-                <input type="username" class="form-control" id="username" placeholder="Username">
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-auto">
-                    <label for="Password"class ="label_item">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Password">
                 </div>
             </div>
-        </div>
-      
-    </form>
-    <div class="row justify-content-center ">
-        <div class="col-auto ">
-            <a routerLink="/heroes"><button class="btn btn-primary"(click)="Entra()"> Entra </button></a>
+
+
+            <div class="row justify-content-center">
+                <div class="col-auto">
+                    <label for="username" class="label_item">Username</label>
+                    <input type="username" class="form-control" id="username" placeholder="Username"
+                        [(ngModel)]="username" name="username">
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-auto" style="padding-bottom: 10px;">
+                        <label for="Password" class="label_item">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Password"
+                            [(ngModel)]="password" name="password">
+                    </div>
+                </div>
+            </div>
+
+        </form>
+        <div class="row justify-content-center ">
+            <div class="col-auto" style="margin-bottom: 10px;">
+                <button class="btn btn-primary" (click)="Entra()"> Entra </button>
+            </div>
         </div>
     </div>
+
 
 
 </div>
