@@ -31,14 +31,14 @@ export class FilterComponent implements OnInit {
 
   filterAge(object: any) {
     this.onFilterAge.emit(object);
-
-
   }
+
   filterName(string: any) {
     this.onFilterName.emit(string);
   }
+
   filterGender(string: any) {
     this.onFilterGender.emit(string);
-
   }
+
 }

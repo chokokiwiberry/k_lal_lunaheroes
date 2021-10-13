@@ -2,7 +2,6 @@
 import { Component, OnInit, Inject, Output, EventEmitter } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Hero } from 'src/app/Hero';
-import { HeroesComponent } from '../heroes/heroes.component';
 @Component({
   selector: 'app-edit-hero',
   templateUrl: './edit-hero.component.html',

@@ -42,7 +42,6 @@ export class HeroItemComponent implements OnInit {
       data: hero
     })
     const sub = dialogRef.componentInstance.onEditHero.subscribe((herodata) => {
-      console.log('sono delete hero subscribe emit, hero', herodata);
       this.onLoadEdit.emit(herodata);
     });
      dialogRef.afterClosed();
@@ -68,7 +67,6 @@ export class HeroItemComponent implements OnInit {
     })
 
     const sub = dialogRef.componentInstance.onDeleteHero.subscribe((herodata) => {
-      console.log('sono delete hero subscribe emit, hero', herodata);
       this.onLoadDelete.emit(herodata);
     });
      dialogRef.afterClosed();
